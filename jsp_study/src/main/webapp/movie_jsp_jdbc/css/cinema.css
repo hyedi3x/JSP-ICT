@@ -1,0 +1,102 @@
+@charset "UTF-8";
+body{
+	margin: 0;
+	padding: 0;
+	font-family: 'Noto Sans KR', 'CJONLYONENEW', '맑은 고딕', '돋움', Dotum, sans-serif;
+}
+
+/* 전체 ul, ol 글머리표 삭제 */
+ol, ul {
+	list-style-type: none;
+}
+
+/* 전체 a 태그 하이퍼링크 밑줄 제거 */
+a {
+	text-decoration-line: none;
+}
+
+/* ---- 상영관 전체 컨테이너 설정 ---- */
+.cinema_container, #c_section{
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto; /* 페이지 가운데로 요소 정렬 */
+  	width: 1000px;   /* 요소 전체 너비 1000px */
+}
+
+/* ---- 자주 가는 상영관에 대한 설정 ---- */
+#c_section {
+  background-color: #32373b; /* 배경 색상: 진한 그레이 */
+}
+
+/* dot line UI*/ 
+#c_line {
+	display: flex;
+	flex-direction: column;
+	margin: 25px 30px;
+  border: 2px dashed #666666; /* 테두리 색상: 연한 그레이 */
+}
+
+#c_favorite {
+	display: flex;
+	flex-direction: column;
+	padding: 10px 25px;	
+}
+
+#c_favorite h3{
+	margin: 15px 0px 15px 15px;
+	color: #ffffff;
+}
+
+#c_city {
+	display: flex;
+	flex-flow: row wrap; /* flex 방향과 줄바꿈 설정*/
+	width: 100%;
+	border-top: 2px solid #666666; /* 테두리 색상: 연한 그레이 */
+	border-bottom: 2px solid #666666; /* 테두리 색상: 연한 그레이 */
+}
+
+#c_city ul{
+	display: flex;
+	width: 100%;
+	justify-content: space-evenly; /* 일정 간격(양끝 포함)으로 ul 태그 가로 배치*/
+	padding: 0;
+} 
+
+#c_city li, .c_area li {
+	padding: 0px 15px;
+}
+
+#c_city li a, .c_area li a{
+	color: #ffffff;
+}
+
+.c_area {
+	display: flex;
+	flex-flow: row wrap; /* flex 방향과 줄바꿈 설정*/
+	width: 100%; 
+}
+
+.ul_space_between {
+	display: flex;
+	width: 100%;
+	justify-content: space-between; /* 일정 간격으로 ul 태그 가로 배치*/
+	flex-flow: row wrap; /* flex 방향과 줄바꿈 설정*/
+	margin: 15px 0px 0px 0px;
+	padding: 0;
+}
+
+.c_area ul li {
+	font-size: 13px;
+	font-weight: 600;
+	border-right: 1px solid #666666;
+	margin: 5px 0px;
+}
+
+.ul_flexStart {
+	display: flex;
+	width: 100%;
+	justify-content: flex-start; /* ul 태그 왼쪽 정렬 */
+	flex-flow: row wrap; /* flex 방향과 줄바꿈 설정*/
+	margin: 0px 0px 10px 0px;
+	padding: 0;
+}
