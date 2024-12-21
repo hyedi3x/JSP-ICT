@@ -20,8 +20,8 @@
 		ResultSet rs = null;     // sql 실행결과를 가지고 오는 라이브러리
 		
 		// input 입력값 변수에 저장하기
-		String userId = request.getParameter("u_id");
-		String userPwd = request.getParameter("u_password"); 
+		String userId = request.getParameter("user_id");
+		String userPwd = request.getParameter("user_pwd"); 
 	
 	    try {
 	        // [DB 접속/연결]
@@ -34,7 +34,7 @@
 					
 	        // [SQL 쿼리 수정]
 	        // 아이디와 비번을 검사하는 구문
-	        String query = "SELECT * FROM movie_member WHERE id = ? AND password = ?";
+	        String query = "SELECT * FROM movie_member WHERE user_id=? AND user_pwd=?";
 	
 	        // [쿼리 연결 및 값 바인딩]
 	        pstmt = conn.prepareStatement(query);

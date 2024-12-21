@@ -21,8 +21,8 @@
 				<form action="memberDAOImpI.jsp" method="post">
 					<div class="loginInput">
 						<p>아이디 비밀번호를 입력하신 후, 로그인 버튼을 클릭해 주세요.<p>
-						<input type="text" name="u_id" placeholder="id">
-						<input type="password" name="u_password" placeholder="password">	
+						<input type="text" name="user_id" placeholder="id">
+						<input type="password" name="user_pwd" placeholder="password">	
 						<input type="submit" value="로그인">	
 						<input type="checkbox" value="saveId">아이디 저장
 					</div>
