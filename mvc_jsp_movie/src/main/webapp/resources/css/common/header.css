@@ -1,0 +1,97 @@
+@charset "UTF-8";
+body{
+	margin: 0;
+	padding: 0;
+	font-family: 'Noto Sans KR', 'CJONLYONENEW', '맑은 고딕', '돋움', Dotum, sans-serif;
+}
+
+/* [header 전체 컨테이너] */
+#header {
+	display: flex;
+	flex-direction: column;
+	padding: 10px 0px 15px 0px;  /* 상 우 하 좌 */
+	background-color: #ED3125; /* red */
+}
+
+/* =======================[headerContents의 요소]=======================
+   : 일정 간격으로 양끝에 배치(space-between)한다. */
+#header #headerContents {
+	display: flex;
+	background-color: #ED3125; /* red */
+	justify-content: space-between;
+	padding: 0px 10px 15px 10px;  /* 상 우 하 좌 */
+}
+
+#headerContents, #nav {
+	margin: 0 auto; /* #headerContents와 #nav 요소들 페이지 가운데 정렬 */
+  	width: 980px;   /* 전체 너비 980px */
+}
+
+#headerContents a, #headerContents ul {
+	display: flex;
+	align-items: center; /* #headerContents a와 #headerContents ul 요소들을 수직 가운데 배치 */
+}
+
+#headerContents img {
+	width: 120px;    /* CGV 로고 이미지 너비 */
+	height: 50px;
+	object-fit: cover; /* 오브젝트의 사이즈를 컨테이너 크기에 맞춰 자동 조절 */
+}
+
+#headerContents ul {
+	margin: 0;
+	display: flex;
+	justify-content: flex-end;  /* ul 태그들의 요소들을 flex 오른쪽 정렬 */
+	width: 700px;  /* ul 태그들이 차지하는 전체 너비 */
+}
+
+#headerContents li {
+	padding: 0px 15px;  /* 상하 좌우 */
+	list-style-type: none;	/* 글머리표 삭제 */
+}
+
+#headerContents li a {
+	display: flex;
+	flex-direction:column;  /* #headerContents 아이콘/텍스트 간 배치 - 세로 정렬 */
+	color: white;
+	text-decoration-line: none; /* 하이퍼링크 밑줄 제거 */
+	margin: 0;
+}
+
+#headerContents li a i { /* headerContents fontawesome 요소 설정*/
+	display: flex;
+	justify-content: center;  /* 요소들 수평 가운데 배치 */
+	font-size: 22px;  /* 아이콘 크기 */
+	margin: 15px 0px 5px 0px;
+}
+
+
+/* =======================[nav의 요소]=======================
+   : 일정 간격으로 양끝에 배치(space-between)한다. */
+#nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center; /* #nav 요소들 수직 가운데 배치 */
+	background-color: #ffffff;   /* white */
+	padding: 15px 10px;    /* 상하 좌우 */
+}
+
+#navContents a {
+	color: black;
+	font-weight: bold;
+	text-decoration-line: none;  /*하이퍼링크 밑줄 제거 */
+	padding: 15px;  /* navContents a 요소간 전체 간격 */
+}
+
+#navSearch {  /* 검색창 요소 설정 */ 
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;  /* 오른쪽 끝 배치 */
+}
+
+#navSearch input{
+	color: black;
+	font-weight: bold;
+	margin: 2px; 
+	padding: 2px 5px;
+}
