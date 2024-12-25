@@ -1,0 +1,65 @@
+@charset "UTF-8";
+body{
+	margin: 0;
+	padding: 0;
+	font-family: 'Noto Sans KR', 'CJONLYONENEW', '맑은 고딕', '돋움', Dotum, sans-serif;
+}
+
+/* [footer 전체 컨테이너] */
+#footer {
+	display: flex;
+	flex-direction: column;
+	background-color: #ED3125; /* red */
+}
+
+/* =======================[footerContents의 요소]======================= */
+#footerContents {
+	display: flex;
+	padding: 23px 0px;  /* 상하 좌우 */
+	background-color: #ED3125; /* red */
+	border-bottom: 1px solid #ebebeb;  /* 테두리 아래쪽 연한 그레이*/
+}
+
+#footerContents, #companyInfo {
+	margin: 0 auto; /* #footerContents와 #companyInfo 요소들 페이지 가운데 정렬 */
+  	width: 1000px;   /* 전체 너비 980px */
+}
+
+#footerContents a, #footerContents ul {
+	display: flex;	
+	align-items: center; /* #footerContents a와 #footerContents ul 요소들을 수직 가운데 배치 */
+}
+
+#footerContents ul {
+	width: 100%;  /* 980px */
+	justify-content: space-between; /* #footerContents ul 요소들을 일정 간격으로 양끝에 배치 */
+	margin: 0px 10px;   /* 상하 좌우 */
+	padding: 0;
+}
+
+#footerContents li {
+	padding: 0;  /* 상하 좌우 */
+	list-style-type: none;	/* 글머리표 삭제 */
+}
+
+#footerContents li a {
+	font-weight: bold;
+	font-size: 13px;
+	color: #ffffff;   /* white */
+	text-decoration-line: none; /* 하이퍼링크 밑줄 제거 */
+}
+
+
+/* =======================[companyInfo의 요소]======================= */
+#companyInfo {
+	display: flex;
+	flex-direction: column;
+	padding: 15px 0;   /* 상하 좌우 */
+}
+
+#companyInfo p {
+	color: #ffffff;   /* white */
+	font-size: 14px;
+	margin: 3px 10px;   /* 상하 좌우 */
+	padding: 0;
+}
