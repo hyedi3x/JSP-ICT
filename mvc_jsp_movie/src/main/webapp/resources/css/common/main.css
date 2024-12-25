@@ -1,0 +1,14 @@
+@charset "UTF-8";
+body{
+	margin: 0;
+	padding: 0;
+	font-family: 'Noto Sans KR', 'CJONLYONENEW', '맑은 고딕', '돋움', Dotum, sans-serif;
+}
+
+/* [메인 전체 컨테이너] */
+#main {
+	display: flex;
+	margin: 0 auto;
+  	width: 980px;  
+	height: 600px;
+}
