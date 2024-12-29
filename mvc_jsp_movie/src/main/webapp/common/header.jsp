@@ -11,11 +11,11 @@
 <body>
 	<div id="header">
 		<div id="headerContents">
-			<a href="#"><img src="/mvc_jsp_movie/resources/imgs/common/header/CGV.jpg" alt="CGV-logo"></a>
+			<a href="#"><img src="https://img.cgv.co.kr/R2014/images/common/logo/logoRed.png" alt="CGV"></a>
 			<ul>
-				<li><a href="/mvc_jsp_movie/login.do"><i class="fa-solid fa-user"></i>로그인</a></li>
-				<li><a href="/mvc_jsp_movie/join.do"><i class="fa-solid fa-user-plus"></i>회원가입</a></li>
-				<li><a href="/mvc_jsp_movie/csr.do"><i class="fa-solid fa-headset"></i>고객센터</a></li>
+				<li><a href="/mvc_jsp_movie/login.do"><i class="fa-solid fa-arrow-right-to-bracket"></i>로그인</a></li>
+				<li><a href="/mvc_jsp_movie/join.do"><i class="fa-regular fa-user"></i>회원가입</a></li>
+				<li><a href="/mvc_jsp_movie/csr.do"><i class="fa-solid fa-phone-volume"></i>고객센터</a></li>
 			</ul>			
 		</div>
 		<div id="nav">
