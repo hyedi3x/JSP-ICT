@@ -92,6 +92,7 @@
 						<div class="inputType">
 							<input type="date" class="input2" name="user_birth" required>
 						</div>
+						
 					</div>
 					
 					<div class="infoInput">
@@ -100,7 +101,7 @@
 						</div>
 						<div class="inputType">
 							<select name="user_hp1" onchange="selectHp1Chk()">
-								<option value="0"> 직접입력 </option>
+								<option value=""> 직접입력 </option>
 								<option value="010"> 010 </option>																
 							</select>
 							-
@@ -139,9 +140,10 @@
 							@
 							<input type="text" class="input3" name="user_email2">
 							<select name="user_email3" onchange="selectEmailChk()" style="width: 106px;">
-								<option value="0"> 직접입력 </option>
+								<option value=""> 직접입력 </option>
 								<option value="google.com"> 구글 </option>
 								<option value="naver.com"> 네이버 </option>
+								<option value="kakao.com"> 카카오 </option>
 								<option value="nate.com"> 네이트 </option>
 							</select>
 						</div>
@@ -153,12 +155,24 @@
 						</div>
 						<div class="inputType">
 							<select name="user_tel1" onchange="selectTel1Chk()">
-								<option value="0"> 직접입력 </option>
-								<option value="010"> 02 </option>
-								<option value="010"> 02 </option>
-								<option value="010"> 02 </option>
-								<option value="010"> 02 </option>
-
+								<!-- 총 16개의 지역 전화번호 -->
+								<option value=""> 직접입력 </option>
+								<option value="02"> 02(서울) </option>
+								<option value="031"> 031(경기) </option>
+								<option value="032"> 032(인천) </option>
+								<option value="033"> 033(강원) </option>
+								<option value="041"> 041(충남) </option>
+								<option value="042"> 042(대전) </option>
+								<option value="043"> 043(충북) </option>
+								<option value="051"> 051(부산) </option>
+								<option value="052"> 052(울산) </option>
+								<option value="053"> 053(대구) </option>
+								<option value="054"> 054(경북) </option>
+								<option value="055"> 055(경남) </option>
+								<option value="061"> 061(전남) </option>
+								<option value="062"> 062(광주) </option>
+								<option value="063"> 063(전북) </option>
+								<option value="064"> 064(제주) </option>
 							</select>
 							-
 							<input type="text" class="input3" name="user_tel2" size="4" required>
@@ -174,10 +188,6 @@
 				</div>
 			</form>
 		</div>
-	
-	
-	
-	
 	</div>
 	<!-- footer page -->
 	<%@ include file="/common/footer.jsp" %>	
