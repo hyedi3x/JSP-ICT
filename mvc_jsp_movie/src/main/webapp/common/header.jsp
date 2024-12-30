@@ -11,7 +11,7 @@
 <body>
 	<div id="header">
 		<div id="headerContents">
-			<a href="#"><img src="https://img.cgv.co.kr/R2014/images/common/logo/logoRed.png" alt="CGV"></a>
+			<a href="/mvc_jsp_movie/main.do"><img src="https://img.cgv.co.kr/R2014/images/common/logo/logoRed.png" alt="CGV"></a>
 			<ul>
 				<li><a href="/mvc_jsp_movie/login.do"><i class="fa-solid fa-arrow-right-to-bracket"></i>로그인</a></li>
 				<li><a href="/mvc_jsp_movie/join.do"><i class="fa-regular fa-user"></i>회원가입</a></li>
