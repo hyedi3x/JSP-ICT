@@ -85,7 +85,7 @@
 }
 
 /* ----------------------[테두리 요소]---------------------- */
-.input1, .input2, .input3, .input4, select {
+.input1, .input2, .input3, .input4, .input5, select {
 	border: 1px solid #a5a5a5; /* 연한 그레이  */
 	border-radius: 3px;
 	outline: none;   /* 그림자(윤곽선) 없음*/
@@ -99,7 +99,7 @@ input[type=text]:focus, input[type=password]:focus, input[type=date]:focus, sele
 } 
 
 /* ----------------------[input 입력 크기 요소]---------------------- */
-.input1, .input2, .input3, .input4 {
+.input1, .input2, .input3, .input4, .input5 {
 	padding: 8px 10px; 
 }
 
@@ -117,6 +117,10 @@ input[type=text]:focus, input[type=password]:focus, input[type=date]:focus, sele
 
 .input4 {  /* 이메일 */
 	width: 140px;
+}
+
+.input5 {  /* 주소 */
+	width: 185px;
 }
 
 /* ----------------------[input 버튼 요소]---------------------- */
@@ -177,3 +181,7 @@ select {
 	padding: 8px;
 }
 
+#detailExtra {  
+	display: flex;
+	justify-content: space-between;
+}

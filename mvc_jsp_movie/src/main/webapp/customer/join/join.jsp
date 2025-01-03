@@ -21,6 +21,13 @@
 <!-- fontawesome key -->
 <script src="https://kit.fontawesome.com/cec98146e1.js" crossorigin="anonymous"></script>
 
+<!-- 다음 API 우편주소 찾기 -->
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="/mvc_jsp_movie/resources/js/customer/join/daumAdressAPI.js" defer></script> 
+
+<!-- join.js -->
+<script src="/mvc_jsp_movie/resources/js/customer/join/join.js" defer></script> 
+
 </head>
 <body>
 	<div id="joinWrap">
@@ -38,7 +45,7 @@
 		
 		<div class="section">
 			<!-- href 링크 연결은 /mvc_jsp_movie/~.do이고, action 연결은 .do만 작성 -->		
-			<form name="joinform" action="joinAction.do" method="post" onsubmit="return signInChk()">
+			<form name="joinform" action="/mvc_jsp_movie/joinAction.do" method="post" onsubmit="return signInChk()">
 				<!--  [2-1] signInChk(): 중복 확인 버튼 클릭 체크/hidden으로 생성 -->
 				<input type="hidden" name="hiddenUserId" value="0">
 				
@@ -54,6 +61,7 @@
 						</div>
 						<div class="inputType">
 							<input type="text" class="input1" name="user_id" placeholder="공백없이 20자 이내로" required autofocus>
+								<!-- onClick : 객체를 클릭했을 때 발생하는 이벤트 -->
 							<input type="button" name="dubChk" value="중복확인" onclick="confirmId()">
 						</div>
 					</div>
@@ -117,11 +125,15 @@
 						</div>
 						<div class="inputType2">
 							<div id="areaNumber">
-								<input type="text" class="input1"  name="user_address1" size="10" placeholder="우편번호" style="width: 100px; padding: 8px;" required>
-								<input type="button" name="dubChk" value="우편번호 찾기" onclick="confirmId()">
+								<input type="text" class="input1"  id="sample6_postcode" name="user_address1" size="10" placeholder="우편번호" style="width: 100px; padding: 8px;" required>
+								<!-- onClick : 객체를 클릭했을 때 발생하는 이벤트 -->
+								<input type="button" name="addressChk" value="우편번호 찾기" onclick="sample6_execDaumPostcode()">
 							</div>
-							<input type="text" class="input1" name="user_address2" size="50" required>
-							<input type="text" class="input1" name="user_address3" size="50" required>
+							<input type="text" class="input1" id="sample6_address" name="user_address2" size="50" placeholder="주소" required>
+							<div id="detailExtra">
+								<input type="text" class="input5" id="sample6_detailAddress" name="user_address3" size="50" placeholder="상세주소" required>
+								<input type="text" class="input5" id="sample6_extraAddress" name="user_address4" size="50" placeholder="참고항목" required>
+							</div>
 						</div>
 					</div>			
 				</div>
@@ -139,6 +151,7 @@
 							<input type="text" class="input4" name="user_email1">
 							@
 							<input type="text" class="input3" name="user_email2">
+							<!-- onchange: 객체의 내용(이벤트)이 변경되었을 때 사용(주로 select문) -->
 							<select name="user_email3" onchange="selectEmailChk()" style="width: 106px;">
 								<option value=""> 직접입력 </option>
 								<option value="google.com"> 구글 </option>
@@ -154,6 +167,7 @@
 							<span> 전화번호 </span>
 						</div>
 						<div class="inputType">
+							<!-- onchange: 객체의 내용(이벤트)이 변경되었을 때 사용(주로 select문) -->
 							<select name="user_tel1" onchange="selectTel1Chk()">
 								<!-- 총 16개의 지역 전화번호 -->
 								<option value=""> 직접입력 </option>
@@ -175,9 +189,9 @@
 								<option value="064"> 064(제주) </option>
 							</select>
 							-
-							<input type="text" class="input3" name="user_tel2" size="4" required>
+							<input type="text" class="input3" name="user_tel2" size="4" >
 							-
-							<input type="text" class="input3" name="user_tel3" size="4" required>
+							<input type="text" class="input3" name="user_tel3" size="4" >
 						</div>
 					</div>	
 				</div>
