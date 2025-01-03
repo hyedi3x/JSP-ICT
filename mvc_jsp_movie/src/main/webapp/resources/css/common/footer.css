@@ -1,28 +1,20 @@
-@charset "UTF-8";
-body{
-	margin: 0;
-	padding: 0;
-	font-family: 'Noto Sans KR', 'CJONLYONENEW', '맑은 고딕', '돋움', Dotum, sans-serif;
-}
-
 /* [footer 전체 컨테이너] */
 #footer {
 	display: flex;
 	flex-direction: column;
-	background-color: #ED3125; /* red */
+	border-top: 1px solid #ED3125;  /* 테두리 위쪽 레드 */
 }
 
 /* =======================[footerContents의 요소]======================= */
 #footerContents {
 	display: flex;
 	padding: 23px 0px;  /* 상하 좌우 */
-	background-color: #ED3125; /* red */
 	border-bottom: 1px solid #ebebeb;  /* 테두리 아래쪽 연한 그레이*/
 }
 
 #footerContents, #companyInfo {
 	margin: 0 auto; /* #footerContents와 #companyInfo 요소들 페이지 가운데 정렬 */
-  	width: 1000px;   /* 전체 너비 980px */
+  	width: 1000px;   /* 전체 너비 1000px */
 }
 
 #footerContents a, #footerContents ul {
@@ -31,7 +23,7 @@ body{
 }
 
 #footerContents ul {
-	width: 100%;  /* 980px */
+	width: 100%;  /* 1000px */
 	justify-content: space-between; /* #footerContents ul 요소들을 일정 간격으로 양끝에 배치 */
 	margin: 0px 10px;   /* 상하 좌우 */
 	padding: 0;
@@ -45,7 +37,7 @@ body{
 #footerContents li a {
 	font-weight: bold;
 	font-size: 13px;
-	color: #ffffff;   /* white */
+	color: #353535; /* 채도가 낮은 진한 그레이 */
 	text-decoration-line: none; /* 하이퍼링크 밑줄 제거 */
 }
 
@@ -58,7 +50,7 @@ body{
 }
 
 #companyInfo p {
-	color: #ffffff;   /* white */
+	color: #353535; /* 채도가 낮은 진한 그레이 */
 	font-size: 14px;
 	margin: 3px 10px;   /* 상하 좌우 */
 	padding: 0;

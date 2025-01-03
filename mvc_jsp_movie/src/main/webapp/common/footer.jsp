@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>CGV-header</title>
+<title>CGV-footer</title>
 
 </head>
 <body>
