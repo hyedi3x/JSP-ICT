@@ -36,16 +36,18 @@ public class CustomerController extends HttpServlet {
 	// doGet 메서드에서 action 함수를 사용하기 위해 생성
 	// Service와 Controller 간의 데이터 유통
 	public void action(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// [2단계] 클라이언트 요청을 분석
+		// -------------------- [2단계] 클라이언트 요청을 분석 -------------------- 
 
 		// 한글 안깨지게 처리
 		request.setCharacterEncoding("UTF-8");
 
-		// getRequestURI : 호출된 FULL 주소를 가져 온다.
-		// -> http://localhost/jsp_pj_ict04/*.do (url 매핑을 *.do로 만들어서)
-		String uri = request.getRequestURI(); // uri : ==> /jsp_pj_ict04/*.do
+		// ********************** [getRequestURI] ********************** 
+		// : 호출된 FULL 주소를 가져 온다.
+		// -> http://localhost/mvc_jsp_movie/*.do (url 매핑을 *.do로 만들어서)
+		String uri = request.getRequestURI(); // uri : ==> /mvc_jsp_movie/*.do
 
-		// contextPath(프로젝트 명을 가지고 오는 메서드, jsp_pj_ict04와 동일)
+		// ********************** [getContextPath] ********************** 
+		// : 프로젝트 명을 가지고 오는 메서드 (mvc_jsp_movie와 동일)
 		String contextPath = request.getContextPath();
 
 		// uri.substring(시작위치, 끝); : contextPath의 문자열 시작부터 끝까지 추출
@@ -53,19 +55,30 @@ public class CustomerController extends HttpServlet {
 		String url = uri.substring(contextPath.length());
 		String viewPage = ""; // 이동할 페이지를 담는 변수
 
-		// 홈페이지 (main.do)
-		// 컨트롤러를 구동하면, main.jsp가 응답함.
+		//  ======================= 홈페이지 (main.do) ======================= 
+		// 컨트롤러를 구동하면,*.do가 응답함. (viewPage를 common/main.jsp로 설정, 해당 페이지로 이동)
 		if (url.equals("/main.do") || url.equals("/*.do")) {
-			System.out.println("<<<url => /main.do >>>");
+			System.out.println("<<controller - main.do>>");
 
 			viewPage = "common/main.jsp";
 		}
 
-		// RequestDispatcher
+		// ======================= [회원가입 페이지] ======================= 
+		else if(url.equals("/join.do")) {
+			System.out.println("<<controller - join.do >>");
+			
+			viewPage = "customer/join/join.jsp";
+		}
+
+		// ********************** [RequestDispatcher] **********************
 		// : 서블릿 또는 JSP 요청을 받은 후, 다른 컴포넌트로 요청을 위임하는 클래스이다.
-		// forward == sendRedirect와 동일 기능 메서드, 페이지 이동 메서드
+		//   현재, request에 담긴 정보를 저장하고 있다가, 다른 페이지에서도 해당 정보를 볼 수 있게 계속 저장하는 기능 (파라미터 정보를 유지)
+
+		// forward 페이지 이동 메서드 (파라미터의 정보를 저장하고, 다른 페이지에도 넘겨주는 메서드)
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);
+		
+		// sendRedirect 페이지 이동 메서드(모든 파라미터의 정보를 제외하고, 단순하게 페이지를 호출하는 메서드)
 	}
 
 }
