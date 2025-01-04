@@ -1,25 +1,25 @@
 ## COMMON 폴더 구성 
-<img src="./imgs-README/img1.png" alt="common 폴더 로직" style="width:100px"> <br/>
-> \- [x] cgvAd.jsp(최신 상영 영화 광고 배너) <br/>
-> \- [x] header.jsp(최상단 내비게이션 바를 담은 헤더 페이지) <br/>
-> \- [ ] main.jsp(영화관 메인페이지) <br/>
-> \- [x] footer.jsp(최하단 회사 소개 및 정보 페이지)<br/>
+<img src="./imgs-README/img1.png" alt="common 폴더 로직" style="width:120px"> <br/>
+> ☑️ cgvAd.jsp(최신 상영 영화 광고 배너) <br/>
+> ☑️ header.jsp(최상단 내비게이션 바를 담은 헤더 페이지) <br/>
+> ✖️ main.jsp(영화관 메인페이지) <br/>
+> ☑️ footer.jsp(최하단 회사 소개 및 정보 페이지) <br/>
 
 <br/>
 
 ### 🎬 cgvAd.jsp
 최신 상영 영화 광고 배너 페이지<br/><br/>
 <img src="./imgs-README/img2.png" alt="영화 배너" style="width:400px"><br/>
-> \- [ ] `[#cgv-ad-wrap]` : 상영 영화 예매 페이지로 이동  <br/>
+> ✖️ `[#cgv-ad-wrap]` : 상영 영화 예매 페이지로 이동  <br/>
 
 <br/>
 
 ### 👻 header.jsp 
 최상단 내비게이션 바를 담은 헤더 페이지 <br/><br/>
 <img src="./imgs-README/img3.png" alt="header" style="width:400px"><br/>
-> \- [X] `[#headerContents]` : 로그인(login.do), 회원가입(join.do), 고객센터(csr.do) <br/>
-> \- [ ] `[#navContents]` : 영화(미완성), 극장(상영관, theater.do), 예매(미완성), 스토어(미완성), 이벤트(미완성), 혜택(미완성) <br/>
-> \- [ ] `[#navSearch]` : 검색창 <br/>
+> ☑️ `[#headerContents]` : 로그인(login.do), 회원가입(join.do), 고객센터(csr.do) <br/>
+> ✖️ `[#navContents]` : 영화(미완성), 극장(상영관, theater.do), 예매(미완성), 스토어(미완성), 이벤트(미완성), 혜택(미완성) <br/>
+>  ✖️ `[#navSearch]` : 검색창 <br/>
 
 <br/>
 
@@ -58,7 +58,7 @@
 ### 🏢 footer.jsp 
 최하단 회사 소개 및 정보 페이지<br/><br/>
 <img src="./imgs-README/img5.png" alt="footer" style="width:400px"><br/>
-> \-  `[#footerContents]` : 회사소개, 지속가능경영, IR ....(미완성) <br/>
-> \-  `[#companyInfo]` : 회사 위치, 회사대표 정보, 저작권 표시
+> ✖️ `[#footerContents]` : 회사소개, 지속가능경영, IR .... <br/>
+> ☑️ `[#companyInfo]` : 회사 위치, 회사대표 정보, 저작권 표시  <br/>
 
 <br/>
