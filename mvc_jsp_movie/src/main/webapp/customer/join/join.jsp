@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="/mvc_jsp_movie/resources/css/common/cgvAd.css">
 <link rel="stylesheet" href="/mvc_jsp_movie/resources/css/common/header.css">
 <link rel="stylesheet" href="/mvc_jsp_movie/resources/css/common/footer.css">
-<link rel="stylesheet" href="/mvc_jsp_movie/resources/css/customer/join.css">
+<link rel="stylesheet" href="/mvc_jsp_movie/resources/css/customer/join/join.css">
 
 <!-- [js] -->
 <!-- fontawesome key -->
@@ -46,7 +46,7 @@
 		<div class="section">
 			<!-- href 링크 연결은 /mvc_jsp_movie/~.do이고, action 연결은 .do만 작성 -->		
 			<form name="joinform" action="/mvc_jsp_movie/joinAction.do" method="post" onsubmit="return signInChk()">
-				<!--  [2-1] signInChk(): 중복 확인 버튼 클릭 체크/hidden으로 생성 -->
+				<!--  [1-1] signInChk(): 중복 확인 버튼 클릭 여부 체크 (0: 클릭 안함, 1: 클릭함) -->
 				<input type="hidden" name="hiddenUserId" value="0">
 				
 				<!-- 필수 입력 폼 -->
@@ -61,7 +61,7 @@
 						</div>
 						<div class="inputType">
 							<input type="text" class="input1" name="user_id" placeholder="공백없이 20자 이내로" required autofocus>
-								<!-- onClick : 객체를 클릭했을 때 발생하는 이벤트 -->
+							<!-- [2-1] onclick : 객체를 클릭했을 때 발생하는 이벤트(지정한 함수로 이동) -->
 							<input type="button" name="dubChk" value="중복확인" onclick="confirmId()">
 						</div>
 					</div>
@@ -108,10 +108,7 @@
 							<span> 핸드폰 번호 </span><span class="requiredAll">*</span>
 						</div>
 						<div class="inputType">
-							<select name="user_hp1" onchange="selectHp1Chk()">
-								<option value=""> 직접입력 </option>
-								<option value="010"> 010 </option>																
-							</select>
+							<input type="text" class="input3" name="user_hp1" size="3" value="010" required>
 							-
 							<input type="text" class="input3" name="user_hp2" size="4" required>
 							-
@@ -126,13 +123,13 @@
 						<div class="inputType2">
 							<div id="areaNumber">
 								<input type="text" class="input1"  id="sample6_postcode" name="user_address1" size="10" placeholder="우편번호" style="width: 100px; padding: 8px;" required>
-								<!-- onClick : 객체를 클릭했을 때 발생하는 이벤트 -->
+								<!-- onclick : 객체를 클릭했을 때 발생하는 이벤트(지정한 함수로 이동) -->
 								<input type="button" name="addressChk" value="우편번호 찾기" onclick="sample6_execDaumPostcode()">
 							</div>
 							<input type="text" class="input1" id="sample6_address" name="user_address2" size="50" placeholder="주소" required>
 							<div id="detailExtra">
 								<input type="text" class="input5" id="sample6_detailAddress" name="user_address3" size="50" placeholder="상세주소" required>
-								<input type="text" class="input5" id="sample6_extraAddress" name="user_address4" size="50" placeholder="참고항목" required>
+								<input type="text" class="input5" id="sample6_extraAddress" name="user_address4" size="50" placeholder="참고항목">
 							</div>
 						</div>
 					</div>			
@@ -170,7 +167,7 @@
 							<!-- onchange: 객체의 내용(이벤트)이 변경되었을 때 사용(주로 select문) -->
 							<select name="user_tel1" onchange="selectTel1Chk()">
 								<!-- 총 16개의 지역 전화번호 -->
-								<option value=""> 직접입력 </option>
+								<option value=""> 지역번호 선택 </option>
 								<option value="02"> 02(서울) </option>
 								<option value="031"> 031(경기) </option>
 								<option value="032"> 032(인천) </option>

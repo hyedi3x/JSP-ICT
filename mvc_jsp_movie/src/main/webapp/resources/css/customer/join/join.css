@@ -181,7 +181,7 @@ select {
 	padding: 8px;
 }
 
-#detailExtra {  
+.inputType2 #detailExtra {  
 	display: flex;
 	justify-content: space-between;
 }
