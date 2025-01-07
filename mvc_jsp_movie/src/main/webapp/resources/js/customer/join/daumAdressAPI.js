@@ -1,6 +1,8 @@
 // 다음 우편 번호 주소 찾기 js
 function sample6_execDaumPostcode() {
+	// new daum.Postcode(): Daum에서 제공하는 우편번호 검색 기능을 사용하기 위해 새로운 객체를 생성
     new daum.Postcode({
+	    // oncomplete 함수 실행 (사용자가 우편번호 검색을 완료하고 선택했을 때 실행)
         oncomplete: function(data) {
             // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
 
@@ -35,12 +37,14 @@ function sample6_execDaumPostcode() {
                 document.getElementById("sample6_extraAddress").value = extraAddr;
             
             } else {
+				// 참고 항목이 없을 시 ''로 값 초기화 
                 document.getElementById("sample6_extraAddress").value = '';
             }
 
             // 우편번호와 주소 정보를 해당 필드에 넣는다.
-            document.getElementById('sample6_postcode').value = data.zonecode;
+            document.getElementById('sample6_postcode').value = data.zonecode;   // zonecode : 국가기초구역번호 (새 우편번호)
             document.getElementById("sample6_address").value = addr;
+            
             // 커서를 상세주소 필드로 이동한다.
             document.getElementById("sample6_detailAddress").focus();
         }
