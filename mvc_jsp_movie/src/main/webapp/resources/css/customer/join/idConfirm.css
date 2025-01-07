@@ -1,0 +1,82 @@
+
+/* =======================[idConfirmContainer의 요소]======================= */
+#idConfirmContainer {
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto; /* 요소들 페이지 가운데 정렬 */
+  	width: 400px; 
+}
+
+/* [idConfirmTitle 요소] */
+#idConfirmTitle {
+	margin-top: 20px;
+	padding: 0px 30px;   /* 상하 좌우 */
+}
+
+#idConfirmTitle h3 {
+	margin: 0;
+	padding: 20px 0px;
+} 
+
+/* [section 요소 - form 요소들] */
+.section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;  /* align-items : 수직정렬 요소 / 현재 디스플레이 방향이 세로이므로, 수평 가운데 정렬*/
+	border-top: 1px solid #ebebeb;  /* 테두리 아래쪽 연한 그레이*/
+}
+
+.sectionForm {
+	display: flex;
+	flex-direction: column;
+}
+
+/* ======================= [기본 정보 체크 영역] ======================= */
+.infoInput {
+	display: flex;
+	margin: 7px 0px;  /* 상하 좌우 */
+}
+
+/* ----------------------[아이디 중복 체크 영역]---------------------- */
+.inputText {  /* 아이디 부분 */
+    display: flex;
+    width: 80px;
+    padding: 10px 10px 10px 0px;
+    align-items: center;
+    font-size: 15px;
+    justify-content: center;
+}
+
+/* ----------------------[테두리 요소]---------------------- */
+.input1{
+	border: 1px solid #a5a5a5; /* 연한 그레이  */
+	border-radius: 3px;
+	outline: none;   /* 그림자(윤곽선) 없음*/
+} 
+
+/* focus */
+input[type=text]:focus {
+	border: 1px solid #ffb3c1;  /* 연핑크 */
+	border-radius: 3px;
+	outline: none;
+} 
+
+/* ----------------------[input 입력 크기 요소]---------------------- */
+.input1 {
+	padding: 8px 10px; 
+	width: 200px;
+}
+
+/* ----------------------[input 버튼 요소]---------------------- */
+.inputType input[type="button"] { /* 중복확인 버튼 */
+    font-size: 13px;
+    height: 30px;
+    background-color: #fb4357;  /* 쨍한 핑크 */
+    color: #ffffff; /* white */
+    border: 1px solid #fb4357; 
+    border-radius: 3px ;
+}
+
+.inputType input[type="button"] {
+	margin-left: 5px;
+}
