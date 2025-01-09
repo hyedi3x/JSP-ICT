@@ -74,7 +74,7 @@ DECLARE -- SQL 프로시저의 변수는 DECLARE문을 사용하여 정의
 BEGIN
     WHILE i <= 10 LOOP    
         INSERT INTO movie_customer_tb(user_id, user_pwd, user_name, user_birth, user_address, user_phone, user_email, user_tel, user_no, user_regdate, login_session)
-        VALUES('user_id'||i, 'pwd_' || j, '사용자' || i, sysdate, '서울시 마포구, 101동 102호','010-1234-1234', 'user_'||i||'@gmail.com', '031-1234-1234','user_no'||i, sysdate, default);
+        VALUES('user_id'||i, 'pwd_' || j, '사용자' || i, sysdate, '서울시 마포구, 101동 102호','010-1234-1234', 'user_'||i||'@gmail.com', '031-1234-1234','userNo_'||i, sysdate, default);
         i := i + 1;
         j := j + 1;   
     END LOOP;
@@ -82,11 +82,16 @@ END;
 /
 COMMIT;
 
+ROLLBACK;
+COMMIT;
 DELETE FROM movie_customer_tb;
 SELECT * FROM movie_customer_tb;
 
--- =======================================================================
--- 관리자 로그인
+--==================================== 회원가입 DAO SQL 구문 삽입 예시 ====================================
+INSERT INTO movie_customer_tb(user_id, user_pwd, user_name, user_birth, user_address, user_phone, user_email, user_tel, user_no, user_regdate, login_session)
+        VALUES('hong', 'hong1234', '홍길동', sysdate, '서울시 마포구, 101동 102호','010-1234-1234', 'hong@gmail.com', '031-1234-1234','userNo_'||(SELECT NVL(MAX(TO_NUMBER(substr(user_no, 8)))+1, 1) FROM movie_customer_tb),  SYSDATE, DEFAULT);
+
+-- ==================================== 관리자 로그인 ====================================
  -- 고객 로그인 'C' => 관리자 로그인 'A'인것만 조회 
 
 INSERT INTO movie_customer_tb(user_id, user_pwd, user_name, user_birth, user_address, user_phone,user_email, user_tel, user_regdate, user_no, login_session)
