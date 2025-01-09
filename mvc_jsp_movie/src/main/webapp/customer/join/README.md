@@ -2,12 +2,14 @@
 <img src="./imgs-README/img1.png" alt="common 폴더 로직" style="width:120px"> <br/>
 > ☑️ ***join.jsp*** (고객 회원가입 폼 페이지) <br/>
 > ☑️ ***joinAction.jsp*** (회원가입 성공/실패 안내 창 페이지, 컨트롤러가 성공여부를 거쳐가는 페이지) <br/>
-> ✖️ ***idConfirm.jsp*** (ID 중복확인 창) <br/>
+> ☑️ ***idConfirm.jsp*** (ID 중복확인 창) <br/>
 
 <br/>
 
 ## 🤹 join.jsp 
-고객 회원가입 페이지 
+고객 회원가입 페이지 <br/>
+
+<img src="./imgs-README/img5.png" alt="회원가입 페이지" style="width:600px"> <br/>
 
 ### 🧠 \<head> 부분
 ```jsp
@@ -285,7 +287,90 @@ function selectTel1Chk() {
 	}
 }
 ```
+<br/>
+
+
+## 🤹 idConfirm.jsp
+아이디 중복확인 성공/실패 자식 창 페이지, 컨트롤러가 성공여부를 거쳐가는 페이지 <br/>
+(자바스크립트의 alert 메서드를 사용하기 위해서는 jsp환경이 필요하기 때문, ServiceImpl.java에서 처리 불가)
+```jsp
+<form name="confirmForm" action="/mvc_jsp_movie/idConfirm.do" method="post">
+
+	<!-- 필수 입력 폼 -->
+	<div class="confirmForm">
+			<%
+				int selectCnt = (Integer)request.getAttribute("selectCnt");
+				String strId = (String)request.getAttribute("strId");
+				
+				// 아이디가 중복일 때 
+				if(selectCnt == 1){
+			%>
+
+		<div class="infoInput">
+			<div id="comfirmId"> 사용 불가한 아이디(<%=strId %>)입니다. </div>
+		</div>
+		<div class="infoInput">
+			<div class="inputText">
+				<span> 아이디 </span><span class="requiredAll">*</span>
+			</div>
+			<div class="inputType">
+				<input type="text" class="input1" name="user_id" placeholder="공백없이 20자 이내로" required autofocus>
+				<input type="submit" value="중복확인" >
+			</div>
+		</div>
+		<%  }
+			else {
+		%>
+		<div class="infoInput">
+			<div id="comfirmId"> 사용 가능한 아이디(<%=strId %>) 입니다. </div>
+		</div>
+		<div class="infoInput">
+			<div class="inputType2">
+				<!-- onclick : 객체를 클릭했을 때 발생하는 이벤트(지정한 함수로 이동) -->
+				<input type="button" value="확인" onclick="setUserId('<%=strId%>')">
+			</div>
+		</div>
+		<%  }
+		%>
+	</div>
+</form>
+```
+
+<br/>
+
 
 ## 🤹 joinAction.jsp
 회원가입 성공/실패 안내 창 페이지, 컨트롤러가 성공여부를 거쳐가는 페이지 <br/>
 (자바스크립트의 alert 메서드를 사용하기 위해서는 jsp환경이 필요하기 때문, ServiceImpl.java에서 처리 불가)
+
+```jsp
+<% 
+	int insertCnt = (Integer)request.getAttribute("insertCnt");
+	
+	if(insertCnt == 1){
+%>
+	<script type="text/javascript">
+		alert("회원 가입 성공");
+		window.location="/mvc_jsp_movie/login.do"
+	</script>
+<%
+	}
+
+	else{
+%>
+				
+	<script type="text/javascript">
+		alert("회원 가입 실패");
+		window.location="/mvc_jsp_movie/join.do"
+	</script>
+<%
+	}
+
+%>
+```
+<br/>
+
+## 🤹 시퀀스 다이어그램
+회원가입 동작 구조 (Controller - Service - DAO - jsp)<br/>
+
+<img src="./imgs-README/img4.png" alt="회원가입 시퀀스 다이어그램" style="width:800px"> <br/>
