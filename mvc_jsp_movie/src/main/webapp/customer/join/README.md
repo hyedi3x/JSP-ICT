@@ -3,7 +3,6 @@
 > ☑️ ***join.jsp*** (고객 회원가입 폼 페이지) <br/>
 > ☑️ ***joinAction.jsp*** (회원가입 성공/실패 안내 창 페이지, 컨트롤러가 성공여부를 거쳐가는 페이지) <br/>
 > ☑️ ***idConfirm.jsp*** (ID 중복확인 창) <br/>
-
 <br/>
 
 ## 🤹 join.jsp 
@@ -287,8 +286,7 @@ function selectTel1Chk() {
 	}
 }
 ```
-<br/>
-
+<br/> 
 
 ## 🤹 idConfirm.jsp
 아이디 중복확인 성공/실패 자식 창 페이지, 컨트롤러가 성공여부를 거쳐가는 페이지 <br/>
@@ -335,9 +333,7 @@ function selectTel1Chk() {
 	</div>
 </form>
 ```
-
 <br/>
-
 
 ## 🤹 joinAction.jsp
 회원가입 성공/실패 안내 창 페이지, 컨트롤러가 성공여부를 거쳐가는 페이지 <br/>
