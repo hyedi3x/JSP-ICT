@@ -43,6 +43,9 @@ CREATE TABLE movie_customer_tb(
     login_session   VARCHAR2(1)     DEFAULT 'C'        -- 로그인 권한 (어드민과 구분)
 );
 
+ALTER TABLE movie_customer_tb
+MODIFY user_address VARCHAR2(100);
+
 SELECT * FROM movie_customer_tb;
 DESC movie_customer_tb;
 
