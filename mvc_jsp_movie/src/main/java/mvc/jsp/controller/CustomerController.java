@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import mvc.jsp.service.CustomerSerivceImpl;
+
 // url mapping을 *.do로 받는다. (do로 모두 받음), "/" 사용 x
 // servlet : 요청에 대한 권한 관리 클래스
 @WebServlet("*.do")
@@ -69,11 +71,26 @@ public class CustomerController extends HttpServlet {
 			viewPage = "customer/join/join.jsp";
 		}
 
+		// ======================= [id 중복 확인 처리 페이지] =======================
 		else if (url.equals("/idConfirm.do")) {
 			System.out.println("<<controller - idConfirm.do >>");
-
+			
+			CustomerSerivceImpl service = new CustomerSerivceImpl();
+			service.idConfirmAction(request, response);
+			
 			viewPage = "customer/join/idConfirm.jsp";
 		}
+		
+		// ======================= [회원가입 처리 페이지] =======================
+		else if(url.equals("/joinAction.do")) {
+			System.out.println("<<<url => /joinAction.do >>>");
+			
+			CustomerSerivceImpl service = new CustomerSerivceImpl();
+			service.signInAction(request, response);
+			
+			viewPage = "customer/join/joinAction.jsp";			
+		}
+		
 
 		// ********************** [RequestDispatcher] **********************
 		// : 서블릿 또는 JSP 요청을 받은 후, 다른 컴포넌트로 요청을 위임하는 클래스이다.
