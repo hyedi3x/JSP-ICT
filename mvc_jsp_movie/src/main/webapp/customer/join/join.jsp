@@ -80,7 +80,7 @@
 							<span> 비밀번호(확인) </span><span class="requiredAll">*</span>
 						</div>
 						<div class="inputType">						
-							<input type="password" class="input1" name="user_pwd" size="20" placeholder="공백없이 20자 이내로" required>
+							<input type="password" class="input1" name="re_pwd" size="20" placeholder="공백없이 20자 이내로" required>
 						</div>
 					</div>
 					
