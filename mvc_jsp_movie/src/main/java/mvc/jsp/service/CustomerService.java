@@ -14,7 +14,7 @@ public interface CustomerService {
 			throws ServletException, IOException;
 	
 	// 회원 가입 처리 
-	public void signInAction(HttpServletRequest request, HttpServletResponse response) 
+	public void signUpAction(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException;
 	
 	// 로그인 처리 && 회원정보 인증(수정, 탈퇴 버튼 생성) 

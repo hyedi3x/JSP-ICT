@@ -86,11 +86,17 @@ public class CustomerController extends HttpServlet {
 			System.out.println("<<<url => /joinAction.do >>>");
 			
 			CustomerSerivceImpl service = new CustomerSerivceImpl();
-			service.signInAction(request, response);
+			service.signUpAction(request, response);
 			
 			viewPage = "customer/join/joinAction.jsp";			
 		}
 		
+		// ======================= [로그인 처리 페이지] =======================
+		else if(url.equals("/login.do")) {
+			System.out.println("<<<url => /login.do >>>");
+			
+			viewPage = "customer/login/login.jsp";			
+		}
 
 		// ********************** [RequestDispatcher] **********************
 		// : 서블릿 또는 JSP 요청을 받은 후, 다른 컴포넌트로 요청을 위임하는 클래스이다.

@@ -33,7 +33,7 @@ public class CustomerSerivceImpl implements CustomerService{
 
 	@Override
 	// 회원 가입 처리 
-	public void signInAction(HttpServletRequest request, HttpServletResponse response)
+	public void signUpAction(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// -------------[3단계] 화면에서 입력받은 값을 가져와서 DTO setter를 통해 값 전달.-------------
 		// [3-1] 회원 가입은 DB에 데이터를 넣어야하기 때문에 브라우저 input 데이터를 dto.set으로 데이터를 담는다. 		
