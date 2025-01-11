@@ -4,7 +4,38 @@
 > ☑️ header.jsp(최상단 내비게이션 바를 담은 헤더 페이지) <br/>
 > ✖️ main.jsp(영화관 메인페이지) <br/>
 > ☑️ footer.jsp(최하단 회사 소개 및 정보 페이지) <br/>
+> ☑️ settings.jsp(공통 리소스들을 모아둔 파일) <br/>
 
+<br/>
+
+### ⚙️ settings.jsp
+> - `공통 리소스들을 모아둔 파일`
+> - **[JSTL 문법]** 을 사용해, **'contextPath(프로젝트명 추출 메서드)'을 변수화**한다.
+```jsp
+<head>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<%-- jstl 선언 --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
+<%-- contextPath : 플젝명 "mvc_jsp_movie"을 var="path 변수에 설정 --%>
+<%-- mvc_jsp_movie --%>
+<c:set var="path" value="${pageContext.request.contextPath}"/>
+
+<!-- [css] -->
+<link rel="stylesheet" href="${path}/resources/css/common/common.css">
+<link rel="stylesheet" href="${path}/resources/css/common/cgvAd.css">
+<link rel="stylesheet" href="${path}/resources/css/common/header.css">
+<link rel="stylesheet" href="${path}/resources/css/common/footer.css">
+
+<!-- js : 네트워크 전송방식(CDN 방식)으로 연동 -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<!-- fontawesome key js -->
+<script src="https://kit.fontawesome.com/cec98146e1.js" crossorigin="anonymous"></script>
+```
 <br/>
 
 ### 🎬 cgvAd.jsp
@@ -29,12 +60,6 @@
 ```jsp
 <head>
 <!-- [css] -->
-<!-- el, jstl로 선언한 링크를 setting.jsp 변수에 담고 링크를 수정할 수 있어서, 
-     include file로 선언한 링크 빼고, 모든 링크를 프로젝트명부터 시작한다. -->
-<link rel="stylesheet" href="/mvc_jsp_movie/resources/css/common/common.css">
-<link rel="stylesheet" href="/mvc_jsp_movie/resources/css/common/cgvAd.css">
-<link rel="stylesheet" href="/mvc_jsp_movie/resources/css/common/header.css">
-<link rel="stylesheet" href="/mvc_jsp_movie/resources/css/common/footer.css">
 <link rel="stylesheet" href="/mvc_jsp_movie/resources/css/common/main.css">
 </head>
 <body>
