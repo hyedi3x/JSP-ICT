@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+        
+<%@ include file="/common/settings.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,22 +13,16 @@
 <title>회원가입 페이지</title>
 
 <!-- [css] -->
-<link rel="stylesheet" href="/mvc_jsp_movie/resources/css/common/common.css">
-<link rel="stylesheet" href="/mvc_jsp_movie/resources/css/common/cgvAd.css">
-<link rel="stylesheet" href="/mvc_jsp_movie/resources/css/common/header.css">
-<link rel="stylesheet" href="/mvc_jsp_movie/resources/css/common/footer.css">
-<link rel="stylesheet" href="/mvc_jsp_movie/resources/css/customer/join/join.css">
+<link rel="stylesheet" href="${path}/resources/css/customer/join/join.css">
 
 <!-- [js] -->
-<!-- fontawesome key -->
-<script src="https://kit.fontawesome.com/cec98146e1.js" crossorigin="anonymous"></script>
 
 <!-- 다음 API 우편주소 찾기 -->
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script src="/mvc_jsp_movie/resources/js/customer/join/daumAdressAPI.js" defer></script> 
+<script src="${path}/resources/js/customer/join/daumAdressAPI.js" defer></script> 
 
 <!-- join.js -->
-<script src="/mvc_jsp_movie/resources/js/customer/join/join.js" defer></script> 
+<script src="${path}/resources/js/customer/join/join.js" defer></script> 
 
 </head>
 <body>
@@ -45,7 +41,7 @@
 		
 		<div class="section">
 			<!-- href 링크 연결은 /mvc_jsp_movie/~.do이고, action 연결은 .do만 작성 -->		
-			<form name="joinform" action="/mvc_jsp_movie/joinAction.do" method="post" onsubmit="return signInChk()">
+			<form name="joinform" action="${path}/joinAction.do" method="post" onsubmit="return signInChk()">
 				<!--  [1-1] signInChk(): 중복 확인 버튼 클릭 여부 체크 (0: 클릭 안함, 1: 클릭함) -->
 				<input type="hidden" name="hiddenUserId" value="0">
 				
@@ -62,7 +58,7 @@
 						<div class="inputType">
 							<input type="text" class="input1" name="user_id" placeholder="공백없이 20자 이내로" required autofocus>
 							<!-- [2-1] onclick : 객체를 클릭했을 때 발생하는 이벤트(지정한 함수로 이동) -->
-							<input type="button" name="dubChk" value="중복확인" onclick="confirmId()">
+							<input type="button" name="dubChk" value="중복확인" onclick="confirmId('${path}')">
 						</div>
 					</div>
 					

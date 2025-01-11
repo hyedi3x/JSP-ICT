@@ -1,4 +1,4 @@
- 
+
 // 1. onsubmit - 회원가입 페이지 필수 체크
 // : form 태그 내부에서 <input type='submit'>로 인해 발생하는 이벤트를 처리
 function signInChk() {
@@ -18,7 +18,8 @@ function signInChk() {
 }
 
 // 2. onclick="confirmId" : 아이디 입력 후, 중복 확인 버튼 클릭
-function confirmId() {
+const path = null;  // path 변수 선언. → join.jsp에서 confrimId('${path}))를 줘서 프로젝트명이 매개변수값으로 넘어온다.
+function confirmId(path) {
 	// [2-1] joinform의 form 태그 내부 user_id(input name)의 value가 없을 때 if문 실행
 	if(!document.joinform.user_id.value) {
 		alert("아이디를 입력해주세요!");
@@ -29,7 +30,7 @@ function confirmId() {
 	// [2-2] 아이디 입력 후, 중복 확인 버튼 클릭 시 : 컨트롤러로 url 전달
 	// 쿼리스트링 사용 (URL의 뒤에 입력 데이터를 함께 제공하는 가장 단순한 데이터 전달 방법 - url 주소?key=value&key2=value2) 
 	// : user_id= + 입력한 value값을 url 변수에 담음 
-	let url = "/mvc_jsp_movie/idConfirm.do?user_id=" + document.joinform.user_id.value;
+	let url = path + "/idConfirm.do?user_id=" + document.joinform.user_id.value;
 	
 	// window.open( ) :  웹브라우저에서 새창(팝업창)을 여는 함수 
 	// open() 함수의 속성들 | 1. 팝업 주소 : url(위에 선언한 변수 사용), 2. 새로 열리는 창(팝업창)의 이름을 지정 : "confirm" , 3. 팝업창 설정 : "menubar=no" : 메뉴바 없이 창 생성

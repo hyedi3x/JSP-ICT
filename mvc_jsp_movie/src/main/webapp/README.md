@@ -14,7 +14,7 @@
 ###  `webapp > `
 | common | customer |resources|
 |:---:|:---:|:---:|
-|`common(공통)`<br/> header.jsp<br/> footer.jsp<br/> cgvAd.jsp<br/> main.jsp| `join(회원가입)`<br/> join.jsp<br/> joinAction.jsp<br/> idConfirm.jsp<br/> | `css > common` <br/> header.css<br/> footer.css<br/> cgvAd.css<br/> common.css<br/> main.css<br/><br/> `css > customer>join`<br/> join.css <br/><br/> `imgs > common > ad`<br/> cgv-ad1.png <br/><br/>  |
+|`common(공통)`<br/> header.jsp<br/> footer.jsp<br/> cgvAd.jsp<br/> main.jsp <br/> settings.jsp| `join(회원가입)`<br/> join.jsp<br/> joinAction.jsp<br/> idConfirm.jsp<br/> | `css > common` <br/> header.css<br/> footer.css<br/> cgvAd.css<br/> common.css<br/> main.css<br/><br/> `css > customer>join`<br/> join.css <br/><br/> `imgs > common > ad`<br/> cgv-ad1.png <br/><br/>  |
 
 ## ⚙️ Settings (자바스크립트) 
 ###  `webapp > resources > js`

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+    
+<%@ include file="/common/settings.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +13,7 @@
 	// 0.5초 후에 main.do로 이동(컨트롤러로 이동)
 	// 서블릿 컨트롤러에서 실행하면 *.do로 실행되기 때문에, 시작 경로를 main.do로 표현하기 위해서
 	setTimeout(function() {
-		window.location="/mvc_jsp_movie/main.do"
+		window.location="${path}/main.do"
 	}, 500);
 </script>
 	
