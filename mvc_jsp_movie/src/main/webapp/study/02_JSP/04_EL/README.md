@@ -60,5 +60,49 @@
 | `+, -, *(산술연산자)` | 더하기, 빼기, 곱하기 |
 | `/ 또는 div(산술연산자)` | 나누기 |
 | `% 또는 mod(산술연산자)` | 나머지 |
-| `${param.num > 5}` | **boolean** |
-| `${null}` | **null** |
+| `== 또는 eq(비교연산자)` | 동일 |
+| `!= 또는 ne(비교연산자)` | not, 동일하지 않을 때 |
+| `> 또는 gt(비교연산자)` | 왼쪽 조건이 더 클 때 |
+| `< 또는 lt(비교연산자)` | 오른쪽 조건이 더 클 때 |
+| `>= 또는 ge(비교연산자)` | 왼쪽 조건이 더 크거나 같을 때 |
+| `<= 또는 le(비교연산자)` | 오른쪽 조건이 더 크거나 같을 때 |
+| `&& 또는 and(논리연산자)` | 모든 조건이 true일 때, true 반환|
+| `\|\| 또는 or(논리연산자)` | 조건이 하나라도 true일 때, true 반환 |
+| `! 또는 not(논리연산자)` | 모든 조건이 false일 때, true 반환 |
+| `empty(empty)` | 표현식 안의 값이 비어있을 경우 true 반환 |
+| `not empty(empty)` | 표현식 안의 값이 비어있지 않으면 false 반환 |
+>https://sgcomputer.tistory.com/243
+
+<br>
+
+#### 🔩 EL의 내장 객체
+| 객체명 | 설명 |
+|---|---|
+| `${pageScope}` | page Scope에 접근하기 위한 객체 |
+| `${reqeustScope}` | request Scope에 접근하기 위한 객체 |
+| `${sessionScope}` | session Scope에 접근하기 위한 객체 |
+| `${applicationScope}` | application Scope에 접근하기 위한 객체 |
+| `${param}` | 파라미터 값을 가져오기 위한 객체 |
+| `${header}` | 헤더 값을 가져오기 위한 객체 |
+| `${cookie}` | 쿠키 값을 가져오기 위한 객체 |
+| `${initParam}` | JSP 초기 파라미터를 가져오기 위한 객체 |
+| `${pageContext}` | pageContext 객체에 접근하기 위한 객체 |
+
+#### 🔩 EL에서 배열, 맵 데이터 연동
+참조하는 객체가 배열이나 맵 형태인 경우, 다음과 같이 사용한다.
+```jsp
+    ${myList[0]} // 배열인 경우
+    ${myMap["name"]} // 맵인 경우
+```
+
+<br>
+
+#### 🔩 Scope Object 접근
+EL은 기본적으로 모든 scope에서 자바 빈 객체를 찾는다. 
+```jsp
+    <%-- 특정 scope만을 대상으로 참조하려면, '내장객체명Scope.속성이름'형식 사용--%>
+    ${requestScope.m.name}  // requestScope에 있는 객체 참조 (객체=클래스(m 클래스))
+    <%-- 값이 scope object 속성으로 저장된 것이 아닌 request의 파라미터로 전달된 값의 경우는 위의 구문 참조 불가.--%>
+    <%= request.getParameter("uname") %>
+    EL : ${param.name} 
+```
