@@ -1,8 +1,9 @@
-# 🪪 Customer > JOIN (고객 회원가입 섹션)
+# 🪪 Customer > JOIN (고객 회원가입 섹션) - scriptlet-version
 <img src="./imgs-README/img1.png" alt="common 폴더 로직" style="width:150px"> <br/>
 > ☑️ ***join.jsp*** (고객 회원가입 폼 페이지) <br/>
 > ☑️ ***joinAction.jsp*** (회원가입 성공/실패 안내 창 페이지, 컨트롤러가 성공여부를 거쳐가는 페이지) <br/>
 > ☑️ ***idConfirm.jsp*** (ID 중복확인 창) <br/>
+
 <br/>
 
 ## 🤹 join.jsp 
@@ -370,3 +371,4 @@ function selectTel1Chk() {
 회원가입 동작 구조 (Controller - Service - DAO - jsp)<br/>
 
 <img src="./imgs-README/img4.png" alt="회원가입 시퀀스 다이어그램" style="width:1000px"> <br/>
+
