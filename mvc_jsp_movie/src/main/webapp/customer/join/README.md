@@ -407,9 +407,7 @@ function setUserId(userId){
 
 >  `c:choose • c:when • c:otherwise(JSTL 코어 라이브러리 기능)` <br/>
   :  **'조건식을 생성'** 한다. <br/>
- <br/>
   \- `c:when test="${insertCnt == 1}"`이면, **'회원가입 성공'** 이므로, ***`window.location="${path}/login.do"`으로 이동***한다.  <br/>
-	<br/>
  \- `c:otherwise`이면, **'회원가입 실패'** 이므로, ***`window.location="${path}/join.do"`으로 이동***한다.  <br/>
  <br/>
 
