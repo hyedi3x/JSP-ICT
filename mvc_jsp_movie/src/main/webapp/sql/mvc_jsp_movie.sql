@@ -97,8 +97,8 @@ INSERT INTO movie_customer_tb(user_id, user_pwd, user_name, user_birth, user_add
 -- ==================================== 관리자 로그인 ====================================
  -- 고객 로그인 'C' => 관리자 로그인 'A'인것만 조회 
 
-INSERT INTO movie_customer_tb(user_id, user_pwd, user_name, user_birth, user_address, user_phone,user_email, user_tel, user_regdate, user_no, login_session)
-    VALUES ('admin', 'admin1234', '관리자', '2024/12/01', '서울시 마포구, 302동 901호', '010-9876-5432', 'admin@gmail.com','02-9876-5432', 'user_no'||i, sysdate, 'A');
+INSERT INTO movie_customer_tb(user_id, user_pwd, user_name, user_birth, user_address, user_phone,user_email, user_tel, user_no, user_regdate, login_session)
+    VALUES ('admin', 'admin1234', '관리자', '2024/12/01', '서울시 마포구, 302동 901호', '010-9876-5432', 'admin@gmail.com','02-9876-5432', 'admin_no1', sysdate, 'A');
 
 SELECT *
 FROM (

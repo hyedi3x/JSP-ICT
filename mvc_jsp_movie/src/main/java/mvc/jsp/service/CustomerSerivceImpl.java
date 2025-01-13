@@ -6,6 +6,7 @@ import java.sql.Date;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import mvc.jsp.dao.CustomerDAOImpl;
 import mvc.jsp.dto.CustomerDTO;
@@ -103,10 +104,24 @@ public class CustomerSerivceImpl implements CustomerService{
 	}
 
 	@Override
-	// 로그인 처리 && 회원정보 인증(수정, 탈퇴 버튼 생성) 
+	// 로그인 처리 
 	public void loginAction(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		System.out.println("service - loginAction");
+		// -------------[3단계] 스크립트에서 get 방식으로 넘긴 값을 가져온다.-------------
+		String strId = request.getParameter("user_id"); // 아이디 값만 가지고 온다.
+		String strPwd = request.getParameter("user_pwd"); // 아이디 값만 가지고 온다.
 		
+		// -------------[4단계] 싱글톤 방식으로 DAO 객체 생성, 다형성 적용-------------
+		CustomerDAOImpl dao = CustomerDAOImpl.getInstance();
+		
+		// -------------[5단계] 로그인 처리-------------
+		int selectCnt = dao.userIdPwdChk(strId, strPwd);
+		
+	    // -------------[selectCnt 값에 따라 세션 설정 및 에러 처리]------------
+	    if (selectCnt == 1) { // 일반 회원
+	        request.getSession().setAttribute("sessionID", strId);
+	    } 
 	}
 
 	@Override

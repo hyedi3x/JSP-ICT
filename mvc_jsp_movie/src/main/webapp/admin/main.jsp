@@ -23,7 +23,7 @@
 		<%@ include file="/common/cgvAd.jsp" %>
 		
 		<!-- header page -->
-		<%@ include file="/common/header.jsp" %>
+		<%@ include file="/admin/admin_header.jsp" %>
 		
 		<!-- main page -->
 		<div id="main"> <h3>mainpage</h3></div>
