@@ -91,11 +91,43 @@ public class CustomerController extends HttpServlet {
 			viewPage = "customer/join/joinAction.jsp";			
 		}
 		
-		// ======================= [로그인 처리 페이지] =======================
+		// ======================= [로그인 페이지] =======================
 		else if(url.equals("/login.do")) {
 			System.out.println("<<<url => /login.do >>>");
 			
 			viewPage = "customer/login/login.jsp";			
+		}
+		
+		// ======================= [로그인 처리 페이지] =======================
+		else if(url.equals("/loginAction.do")) {
+			System.out.println("<<<url => /loginAction.do >>>");
+			CustomerSerivceImpl service = new CustomerSerivceImpl();
+			service.loginAction(request, response);
+			
+			viewPage = "customer/login/loginAction.jsp";		
+		}
+		
+		else if (url.equals("/adminMain.do")) {
+			System.out.println("<<controller - adminMain.do>>");
+
+			viewPage = "admin/main.jsp";
+		}
+		
+		else if (url.equals("/loginMain.do")) {
+			System.out.println("<<controller - loginMain.do>>");
+
+			viewPage = "login/main.jsp";
+		}
+		
+		
+		
+		// ======================= [로그아웃 페이지] =======================
+		else if(url.equals("/logout.do")) {
+			System.out.println("<<<url => /logout.do >>>");
+			
+			// 세션 삭제
+			request.getSession().invalidate();
+			viewPage = "common/main.jsp";			
 		}
 
 		// ********************** [RequestDispatcher] **********************

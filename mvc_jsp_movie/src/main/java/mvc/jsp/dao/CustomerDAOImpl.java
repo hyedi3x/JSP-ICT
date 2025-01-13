@@ -70,7 +70,6 @@ public class CustomerDAOImpl implements CustomerDAO{
 			// rs가 존재할 때 
 			if(rs.next()) {
 				selectCnt = 1;
-				System.out.println("selectCnt: " + selectCnt); // (1 : 성공 0: 실패)
 			}
 		
 		} catch (SQLException e) {
@@ -127,9 +126,43 @@ public class CustomerDAOImpl implements CustomerDAO{
 	}
 
 	@Override
-	// 로그인 처리 && 회원정보 인증(수정, 탈퇴) 
+	// 로그인 처리
 	public int userIdPwdChk(String strId, String strPwd) {
-		return 0;
+		System.out.println("CustomerDAOImpl - userIdPwdChk()");
+		int selectCnt=0;
+		
+		try { 
+			// 1. DB 연결 => 데이터베이스 커넥션 생성 
+			conn = dataSource.getConnection();
+			
+			// 2. SQL 작성 => prepareStatement 작성 
+			String sql = "SELECT * FROM movie_customer_tb"
+					+ " WHERE user_id=? AND user_pwd=? ";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, strId);
+			pstmt.setString(2, strPwd);
+			
+			rs = pstmt.executeQuery();  // executeQuery() : select문과 같은 쿼리문을 실행할 때 사용
+			
+			// 3. 실행 
+			// rs가 존재할 때 
+			if(rs.next()) {
+				selectCnt = 1;
+				System.out.println("selectCnt: " + selectCnt); // (1 : 성공 0: 실패)
+			}
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (pstmt != null) pstmt.close();
+				if (conn != null) conn.close();
+				if (rs != null) rs.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return selectCnt;
 	}
 
 	@Override

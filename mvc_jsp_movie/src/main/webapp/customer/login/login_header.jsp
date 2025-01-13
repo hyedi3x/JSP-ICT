@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+    
 <%@ include file="/common/settings.jsp" %>
 <!DOCTYPE html>
 <html>
@@ -14,8 +14,8 @@
 		<div id="headerContents">
 			<a href="/mvc_jsp_movie/main.do"><img src="https://img.cgv.co.kr/R2014/images/common/logo/logoRed.png" alt="CGV"></a>
 			<ul>
-				<li><a href="/mvc_jsp_movie/login.do"><i class="fa-solid fa-arrow-right-to-bracket"></i>로그인</a></li>
-				<li><a href="/mvc_jsp_movie/join.do"><i class="fa-regular fa-user"></i>회원가입</a></li>
+				<li><a href="/mvc_jsp_movie/logout.do"><i class="fa-solid fa-arrow-right-to-bracket"></i>로그아웃</a></li>
+				<li><a href="/mvc_jsp_movie/myPage.do"><i class="fa-regular fa-user"></i>마이페이지</a></li>
 				<li><a href="/mvc_jsp_movie/csr.do"><i class="fa-solid fa-phone-volume"></i>고객센터</a></li>
 			</ul>			
 		</div>
