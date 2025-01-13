@@ -352,12 +352,10 @@ function selectTel1Chk() {
 ```
 >  `c:choose • c:when • c:otherwise(JSTL 코어 라이브러리 기능)` <br/>
   :  **'조건식을 생성'** 한다. <br/>
- <br/>
-  \- `c:when test="${selectCnt == 1}"`이면, **'아이디가 중복'** 이므로, ***`action="${path}/idConfirm.do"`으로 이동***한다.  <br/>
-	<br/>
- \- `c:otherwise`이면, **'아이디가 DB에 중복되지 않으므로'**, ***`onclick="setUserId('${strId}')"`으로 이동***한다.  <br/>
- <br/>
- `onclick="setUserId('${strId}')"` <br/>
+>>  \- `c:when test="${selectCnt == 1}"`이면, **'아이디가 중복'** 이므로, ***`action="${path}/idConfirm.do"`으로 이동***한다.  <br/>
+>> \- `c:otherwise`이면, **'아이디가 DB에 중복되지 않으므로'**, ***`onclick="setUserId('${strId}')"`으로 이동***한다.  <br/>
+
+> `onclick="setUserId('${strId}')"` <br/>
 	setUserId() 함수에 ***`${strId}`*** 을 ***'매개변수('문자열')'*** 로 담는다.<br/>
 
 ```js
