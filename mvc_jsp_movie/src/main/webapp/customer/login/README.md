@@ -21,7 +21,7 @@
 로그인 페이지 화면 (어드민과 고객 세션 여부에 따라 알럿과 헤더가 달라진다.) <br/>
 
 <img src="./imgs-README/login.gif" alt="로그인 페이지 움짤" style="width:900px"> <br/>
-1
+
 ### 🔓 header.jsp (로그인 전 헤더)
 `로그인`과 `회원가입`, `고객센터`로 로그인 전 화면 헤더를 구성하였다. <br/>
 
@@ -137,7 +137,7 @@
 
 <br/>
 
-### 🔓 admin_header.jsp (관리자 로그인 후 헤더)
+### 🔒 admin_header.jsp (관리자 로그인 후 헤더)
 로그인 후, '관리자 화면 헤더'를 `로그아웃`과 `관리자페이지`, `고객센터`로 구성하였다. <br/>
 
 <img src="./imgs-README/img5.png" alt="로그인 후 관리자 헤더" style="width:700px"> <br/>
@@ -171,7 +171,7 @@
 ```
 <br/>
 
-### 🔓 customer_header.jsp (고객 로그인 후 헤더)
+### 🔒 customer_header.jsp (고객 로그인 후 헤더)
 로그인 후, '고객 화면 헤더'를 `로그아웃`과 `마이페이지`, `고객센터`로 구성하였다. <br/>
 
 <img src="./imgs-README/img6.png" alt="로그인 후 고객 헤더" style="width:700px"> <br/>
