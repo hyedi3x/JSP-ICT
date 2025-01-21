@@ -1,9 +1,13 @@
+<%-- 공통 head 부분 선언 --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
 <%-- jstl 선언 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
+<!-- 반응형 웹 선언 (viewport: 기기, content: 기기의 너비를 부여 받음 -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <%-- contextPath : 플젝명 "mvc_jsp_movie"을 var="path 변수에 설정 --%>
 <%-- mvc_jsp_movie --%>

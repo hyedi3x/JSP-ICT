@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,8 +12,8 @@
 		<div id="headerContents">
 			<a href="${path}/main.do"><img src="https://img.cgv.co.kr/R2014/images/common/logo/logoRed.png" alt="CGV"></a>
 			<ul>
-				<li><a href="${path}/login.do"><i class="fa-solid fa-arrow-right-to-bracket"></i>로그인</a></li>
-				<li><a href="${path}/join.do"><i class="fa-regular fa-user"></i>회원가입</a></li>
+				<li><a href="${path}/logout.do"><i class="fa-regular fa-circle-left"></i>로그아웃</a></li>
+				<li><a href="${path}/myPage.do"><i class="fa-regular fa-user"></i>마이페이지</a></li>
 				<li><a href="${path}/csr.do"><i class="fa-solid fa-phone-volume"></i>고객센터</a></li>
 			</ul>			
 		</div>

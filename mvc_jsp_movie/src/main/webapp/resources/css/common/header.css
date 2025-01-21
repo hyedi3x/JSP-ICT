@@ -1,3 +1,10 @@
+/* [headerWrap 전체 컨테이너] */
+/* headerWrap : 광고 배너와 헤더를 묶은 jsp */
+#headerWrap {
+	display: flex;
+	flex-direction: column;
+}
+
 /* [header 전체 컨테이너] */
 #header {
 	display: flex;

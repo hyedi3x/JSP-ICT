@@ -27,11 +27,8 @@
 </head>
 <body>
 	<div id="joinWrap">
-	<!-- ad banner page -->
-	<%@ include file="/common/cgvAd.jsp" %>
-	
-	<!-- header page -->
-	<%@ include file="/common/header.jsp" %>
+	<!-- header_SessionScope.jsp : banner page & header page -->
+	<%@ include file="/common/header_SessionScope.jsp" %>
 	
 	<!-- join page -->
 	<div id="joinContainer">

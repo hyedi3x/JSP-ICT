@@ -6,11 +6,15 @@ import java.sql.Date;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import mvc.jsp.dao.CustomerDAOImpl;
 import mvc.jsp.dto.CustomerDTO;
 
 public class CustomerSerivceImpl implements CustomerService{
+	
+	// -------------[4단계] 싱글톤 방식으로 DAO 객체 생성, 다형성 적용-------------
+	CustomerDAOImpl dao = CustomerDAOImpl.getInstance();
 
 	@Override
 	// ID 중복 확인 처리 
@@ -19,9 +23,7 @@ public class CustomerSerivceImpl implements CustomerService{
 		// -------------[3단계] 스크립트에서 get 방식으로 넘긴 값을 가져온다.-------------
 		String strId = request.getParameter("user_id"); // 아이디 값만 가지고 온다.
 		
-		// -------------[4단계] 싱글톤 방식으로 DAO 객체 생성, 다형성 적용-------------
-		CustomerDAOImpl dao = CustomerDAOImpl.getInstance();
-		
+		// -------------[4단계] - 전역변수로 선언-------------
 		// -------------[5단계] 회원가입 처리-------------
 		// dao.userIdCheck 함수 값을 selectCnt 변수에 저장한다. 		
 		int selectCnt = dao.userIdCheck(strId);
@@ -89,10 +91,7 @@ public class CustomerSerivceImpl implements CustomerService{
 		
 		dto.setUser_tel(tel);
 		
-		// -------------[4단계] 싱글톤 방식으로 DAO 객체 생성, 다형성 적용-------------
-		CustomerDAOImpl dao = CustomerDAOImpl.getInstance();
-
-		
+		// -------------[4단계] - 전역변수로 선언-------------
 		// -------------[5단계] 회원가입 처리-------------
 		// 위에 불러온 dto 값들을 dao.insertCustmer 함수를 통해 inserCnt 변수에 저장한다. 
 		int insertCnt = dao.insertCustomer(dto);
@@ -106,14 +105,28 @@ public class CustomerSerivceImpl implements CustomerService{
 	// 로그인 처리 && 회원정보 인증(수정, 탈퇴 버튼 생성) 
 	public void loginAction(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		// -------------[3단계] 화면에서 입력받은 값을 가져와서 DTO setter를 통해 값 전달.-------------
+		String strId = request.getParameter("user_id");
+		String strPwd = request.getParameter("user_pwd");
 		
-	}
-
-	@Override
-	// 회원정보 인증 후 탈퇴처리
-	public void deleteCustomerAction(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+		// -------------[4단계] - 전역변수로 선언-------------
+		// -------------[5단계] 로그인 성공여부 처리-------------
+		// 위에 불러온 dto 값들을 dao.insertCustmer 함수를 통해 inserCnt 변수에 저장한다. 
+		int selectCnt = dao.userIdPwdChk(strId, strPwd);
+				
+		// -------------[6단계] - selectCnt 값에 따라 세션 설정 및 에러 처리 ------------
+		// selectCnt 값에 따라 세션 설정 및 에러 처리
+		// HttpSession : 세션을 생성하고, 기존 세션이 존재하면 존재하는 세션을 전달, 없는 세션이면 새롭게 세션 생성
+		// request.getSession() : 컨트롤러 호출 시 세션이 존재하면 존재하는 세션을 전달, 없으면 새로 생성 또는 null 반환
+		HttpSession session = request.getSession();    
 		
+		if (selectCnt == 1) { // 일반 회원	
+			session.setAttribute("sessionID", strId);
+			session.setAttribute("login_session", "Customer"); // 사용자 유형 저장
+		} else if (selectCnt == 2) { // 관리자
+			session.setAttribute("sessionID", strId);
+			session.setAttribute("login_session", "Admin"); // 사용자 유형 저장
+		}
 	}
 
 	@Override
@@ -124,10 +137,16 @@ public class CustomerSerivceImpl implements CustomerService{
 	}
 
 	@Override
-	// 회원정보 인증 후 탈퇴처리
+	// 회원정보 인증 후 수정처리
 	public void modifyCustomerAction(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
 	}
-
+	
+	@Override
+	// 회원정보 인증 후 탈퇴처리
+	public void deleteCustomerAction(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+	}
 }
