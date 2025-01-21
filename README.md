@@ -3,7 +3,7 @@
 > - **전체 페이지 소개** ([INTRO](https://github.com/hyedi3x/JSP-ICT/tree/main/mvc_jsp_movie/src/main/webapp))
 > - **공통 JSP 부분** ([COMMON](https://github.com/hyedi3x/JSP-ICT/tree/main/mvc_jsp_movie/src/main/webapp/common))
 > - **회원가입 JSP** ([JOIN](https://github.com/hyedi3x/JSP-ICT/tree/main/mvc_jsp_movie/src/main/webapp/customer/join))
-> - 
+> - **로그인 JSP** ([LOGIN](https://github.com/hyedi3x/JSP-ICT/tree/main/mvc_jsp_movie/src/main/webapp/customer/login))
 > - **SQL 코드** ([SQL](https://github.com/hyedi3x/JSP-ICT/tree/main/mvc_jsp_movie/src/main/webapp/sql))
 <br>
 
