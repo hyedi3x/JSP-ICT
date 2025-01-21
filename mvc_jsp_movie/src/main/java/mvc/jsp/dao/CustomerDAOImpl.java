@@ -129,13 +129,55 @@ public class CustomerDAOImpl implements CustomerDAO{
 	@Override
 	// 로그인 처리 && 회원정보 인증(수정, 탈퇴) 
 	public int userIdPwdChk(String strId, String strPwd) {
-		return 0;
-	}
+		System.out.println("CustomerDAOImpl - userIdPwdChk()");
+		int selectCnt = 0;
 
-	@Override
-	// 회원정보 인증처리 && 탈퇴처리
-	public int deleteCustomer(String strId) {
-		return 0;
+		try {
+			// 1. DB 연결 => 데이터베이스 커넥션 생성
+			conn = dataSource.getConnection();
+
+			// 2. SQL 작성 => prepareStatement 작성
+			String query = "SELECT a.* "
+					+ "    FROM (SELECT user_id, user_pwd, login_session FROM movie_customer_tb"
+					+ "          UNION"
+					+ "          SELECT admin_id, admin_pwd, login_session FROM movie_admin_tb) a"
+					+ " WHERE user_id=? AND user_pwd=? ";
+
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, strId);
+			pstmt.setString(2, strPwd);
+
+			rs = pstmt.executeQuery();
+
+			// 3. 실행
+			// rs가 존재할 때
+			while (rs.next()) {
+				String login_session = rs.getString("login_session");
+				if (login_session.equals("Customer")) {
+					selectCnt = 1;
+				} else if (login_session.equals("Admin")) {
+					selectCnt = 2;
+				} else {
+					// 알 수 없는 유형 처리
+					selectCnt = 0;
+				}
+				System.out.println("selectCnt: " + selectCnt); // (1 : 성공 0: 실패)
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return selectCnt;
 	}
 
 	@Override
@@ -150,4 +192,9 @@ public class CustomerDAOImpl implements CustomerDAO{
 		return 0;
 	}
 
+	@Override
+	// 회원정보 인증처리 && 탈퇴처리
+	public int deleteCustomer(String strId) {
+		return 0;
+	}
 }

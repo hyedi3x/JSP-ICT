@@ -56,6 +56,10 @@ public class CustomerController extends HttpServlet {
 		String url = uri.substring(contextPath.length());
 		String viewPage = ""; // 이동할 페이지를 담는 변수
 
+		// CustomerSerivceImpl 전역변수로 객체 생성
+		CustomerSerivceImpl service = new CustomerSerivceImpl();
+		
+		
 		// ======================= 홈페이지 (main.do) =======================
 		// 컨트롤러를 구동하면,*.do가 응답함. (viewPage를 common/main.jsp로 설정, 해당 페이지로 이동)
 		if (url.equals("/main.do") || url.equals("/*.do")) {
@@ -75,7 +79,6 @@ public class CustomerController extends HttpServlet {
 		else if (url.equals("/idConfirm.do")) {
 			System.out.println("<<controller - idConfirm.do >>");
 			
-			CustomerSerivceImpl service = new CustomerSerivceImpl();
 			service.idConfirmAction(request, response);
 			
 			viewPage = "customer/join/idConfirm.jsp";
@@ -85,7 +88,6 @@ public class CustomerController extends HttpServlet {
 		else if(url.equals("/joinAction.do")) {
 			System.out.println("<<<url => /joinAction.do >>>");
 			
-			CustomerSerivceImpl service = new CustomerSerivceImpl();
 			service.signUpAction(request, response);
 			
 			viewPage = "customer/join/joinAction.jsp";			
@@ -96,6 +98,24 @@ public class CustomerController extends HttpServlet {
 			System.out.println("<<<url => /login.do >>>");
 			
 			viewPage = "customer/login/login.jsp";			
+		}
+		
+		// ======================= [로그인 성공 처리 페이지] =======================
+		else if(url.equals("/loginAction.do")) {
+			System.out.println("<<<url => /loginAction.do >>>");
+			
+			service.loginAction(request, response);
+			
+			viewPage = "customer/login/loginAction.jsp";			
+		}
+		
+		// ======================= [로그아웃 처리 페이지] =======================
+		else if(url.equals("/logout.do")) {
+			System.out.println("<<<url => /logout.do >>>");
+			
+			// 세션 삭제
+			request.getSession().invalidate();
+			viewPage = "common/main.jsp";		
 		}
 
 		// ********************** [RequestDispatcher] **********************
