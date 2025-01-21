@@ -13,14 +13,14 @@
 	<c:choose>
 		<c:when test="${sessionScope.login_session eq 'Admin'}">
 			<script type="text/javascript">
-			    // alert("${sessionScope.sessionID}님 로그인 성공하였습니다.");
+			    alert("${sessionScope.sessionID}님 로그인 성공하였습니다.");
 				window.location="${path}/main.do";
 			</script>
 		</c:when>
 		
 		<c:when test="${sessionScope.login_session eq 'Customer'}">
 			<script type="text/javascript">
-				// alert("${sessionScope.sessionID}님 로그인 성공하였습니다.");
+				alert("${sessionScope.sessionID}님 로그인 성공하였습니다.");
 				window.location="${path}/main.do";
 			</script>
 		</c:when>
