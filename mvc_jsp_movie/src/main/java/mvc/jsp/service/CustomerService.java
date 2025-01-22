@@ -21,23 +21,23 @@ public interface CustomerService {
 	public void loginAction(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException;
 
-	// ======================= [마이페이지 & 관리자 페이지] =======================
+	// ======================= [마이페이지] =======================
 	public void myInfo(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException;
 	
-	// ======================= [마이페이지 & 관리자 페이지 수정 페이지 진입 전 비밀번호 확인(인증) 처리 페이지] =======================
+	// ======================= [마이페이지 - 수정 페이지 진입 전 비밀번호 확인(인증) 처리 페이지] =======================
 	public void modifyInfoChk(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException;
 	
-	// ======================= [마이페이지 & 관리자 페이지 수정 페이지] =======================
+	// ======================= [마이페이지 - 수정 페이지] =======================
 	public void modifyInfo(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException;
 
-	// ======================= [마이페이지 & 관리자 페이지 수정 처리 페이지] =======================
+	// ======================= [회원정보 인증 후 수정처리] =======================
 	public void modifyInfoAction(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException;
 	
-	// ======================= [회원정보 탈퇴처리] =======================
+	// ======================= [회원정보 인증 후 탈퇴처리] =======================
 	public void deleteInfoAction(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException;
 }

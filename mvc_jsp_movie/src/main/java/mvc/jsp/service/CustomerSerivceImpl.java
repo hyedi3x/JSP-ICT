@@ -2,7 +2,6 @@ package mvc.jsp.service;
 
 import java.io.IOException;
 import java.sql.Date;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -137,7 +136,7 @@ public class CustomerSerivceImpl implements CustomerService{
 	}
 	
 	@Override
-	// ======================= [마이페이지 & 관리자 페이지] =======================
+	// ======================= [마이페이지] =======================
 	public void myInfo(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		System.out.println("CustomerSerivceImpl - myInfo()");
@@ -157,7 +156,7 @@ public class CustomerSerivceImpl implements CustomerService{
 	}
 
 	@Override
-	// ======================= [마이페이지 & 관리자 페이지 수정 페이지 진입 전 비밀번호 확인(인증) 처리 페이지] =======================
+	// ======================= [마이페이지 - 수정 페이지 진입 전 비밀번호 확인(인증) 처리 페이지] =======================
 	public void modifyInfoChk(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		System.out.println("CustomerSerivceImpl - modifyInfoChk()");
@@ -180,7 +179,7 @@ public class CustomerSerivceImpl implements CustomerService{
 	
 	
 	@Override
-	// ======================= [마이페이지 & 관리자 페이지 수정 페이지] =======================
+	// ======================= [마이페이지 - 수정 페이지] =======================
 	public void modifyInfo(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		System.out.println("CustomerSerivceImpl - modifyDetailAction()");
@@ -199,7 +198,7 @@ public class CustomerSerivceImpl implements CustomerService{
 	}
 
 	@Override
-	// 회원정보 인증 후 수정처리
+	// ======================= [회원정보 인증 후 수정처리] =======================
 	public void modifyInfoAction(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		System.out.println("CustomerSerivceImpl - modifyInfoAction()");
@@ -271,7 +270,7 @@ public class CustomerSerivceImpl implements CustomerService{
 	}
 	
 	@Override
-	// 회원정보 인증 후 탈퇴처리
+	// ======================= [회원정보 인증 후 탈퇴처리] =======================
 	public void deleteInfoAction(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// -------------[3단계] 화면에서 입력받은 값을 가져와서 파라미터로 담기 -------------
