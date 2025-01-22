@@ -17,6 +17,8 @@ public class CustomerDTO {
 	private String user_email; // 이메일
 	private String user_tel; // 전화번호
 	private Timestamp user_regDate; // 가입일
+	private String user_grade; // 등급
+	
 
 	// 디폴트 생성자
 	public CustomerDTO() {
@@ -25,7 +27,7 @@ public class CustomerDTO {
 
 	// 매개변수 생성자
 	public CustomerDTO(String user_id, String user_pwd, String user_name, Date user_birth, String user_phone,
-			String user_address, String user_email, String user_tel) {
+			String user_address, String user_email, String user_tel, String user_grade) {
 		super();
 		this.user_id = user_id;
 		this.user_pwd = user_pwd;
@@ -36,6 +38,7 @@ public class CustomerDTO {
 		this.user_email = user_email;
 		this.user_tel = user_tel;
 		this.user_regDate = user_regDate;
+		this.user_grade = user_grade;
 	}
 
 	// Get, Set 메서드
@@ -111,14 +114,24 @@ public class CustomerDTO {
 		this.user_regDate = user_regDate;
 	}
 
+	public String getUser_grade() {
+		return user_grade;
+	}
+
+	public void setUser_grade(String user_grade) {
+		this.user_grade = user_grade;
+	}
+
 	// 모든 변수를 toString으로 담는다.
 	// toString() 메서드: 객체가 가지고 있는 정보나 값들을 문자열로 만들어 리턴하는 메소드
 	@Override
 	public String toString() {
 		return "CustomerDTO [user_id=" + user_id + ", user_pwd=" + user_pwd + ", user_name=" + user_name
 				+ ", user_birth=" + user_birth + ", user_phone=" + user_phone + ", user_address=" + user_address
-				+ ", user_email=" + user_email + ", user_tel=" + user_tel + ", user_regDate=" + user_regDate + "]";
+				+ ", user_email=" + user_email + ", user_tel=" + user_tel + ", user_regDate=" + user_regDate
+				+ ", user_grade=" + user_grade + "]";
 	}
+	
 }
 
 /*
