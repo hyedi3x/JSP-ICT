@@ -33,8 +33,9 @@ function confirmId(path) {
 	let url = path + "/idConfirm.do?user_id=" + document.joinform.user_id.value;
 	
 	// window.open( ) :  웹브라우저에서 새창(팝업창)을 여는 함수 
-	// open() 함수의 속성들 | 1. 팝업 주소 : url(위에 선언한 변수 사용), 2. 새로 열리는 창(팝업창)의 이름을 지정 : "confirm" , 3. 팝업창 설정 : "menubar=no" : 메뉴바 없이 창 생성
-	window.open(url, "confirm", "menubar=no, width=450, height=250");  
+	// open() 함수의 속성들 | 1. 팝업 주소 : url(위에 선언한 변수 사용), 2. 새로 열리는 창(팝업창)의 이름을 지정 : "confirm" 
+	// , 3. 팝업창 설정 : "menubar=no" : 메뉴바 없이 창 생성, 창 위치 조정: left=900, top=250
+	window.open(url, "confirm", "menubar=no, width=450, height=250, left=900, top=250");  
 	
 }
 
