@@ -49,7 +49,7 @@ public class CustomerDAOImpl implements CustomerDAO{
 	ResultSet rs = null;  // select 결과 
 	
 	@Override
-	// ID 중복 확인 처리 
+	// ======================= [id 중복 확인 처리 페이지] =======================
 	public int userIdCheck(String strId) {
 		System.out.println("CustomerDAOImpl - userIdCheck()");
 		int selectCnt=0;
@@ -88,7 +88,7 @@ public class CustomerDAOImpl implements CustomerDAO{
 	}
 
 	@Override
-	// 회원 가입 처리 
+	// ======================= [회원가입 처리 페이지] =======================
 	public int insertCustomer(CustomerDTO dto) {
 		System.out.println("CustomerDAOImpl - insertCustomer()");
 		int insertCnt = 0;
@@ -99,7 +99,7 @@ public class CustomerDAOImpl implements CustomerDAO{
 			
 			// 2. SQL 작성 => prepareStatement 작성 
 			String sql = "INSERT INTO movie_customer_tb"
-					+ "    VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'userNo_'||(SELECT NVL(MAX(TO_NUMBER(substr(user_no, 8)))+1, 1) FROM movie_customer_tb),  SYSDATE, DEFAULT)";
+					+ "    VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'userNo_'||(SELECT NVL(MAX(TO_NUMBER(substr(user_no, 8)))+1, 1) FROM movie_customer_tb), SYSDATE, DEFAULT, 'N', 'Customer')";
 			
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, dto.getUser_id());
@@ -127,7 +127,7 @@ public class CustomerDAOImpl implements CustomerDAO{
 	}
 
 	@Override
-	// 로그인 처리 && 회원정보 인증(수정, 탈퇴) 
+	// ======================= [회원정보 인증(아이디, 비번)] =======================
 	public int userIdPwdChk(String strId, String strPwd) {
 		System.out.println("CustomerDAOImpl - userIdPwdChk()");
 		int selectCnt = 0;
@@ -138,10 +138,10 @@ public class CustomerDAOImpl implements CustomerDAO{
 
 			// 2. SQL 작성 => prepareStatement 작성
 			String query = "SELECT a.* "
-					+ "    FROM (SELECT user_id, user_pwd, login_session FROM movie_customer_tb"
+					+ "    FROM (SELECT user_id, user_pwd, login_session, delete_status FROM movie_customer_tb"
 					+ "          UNION"
-					+ "          SELECT admin_id, admin_pwd, login_session FROM movie_admin_tb) a"
-					+ " WHERE user_id=? AND user_pwd=? ";
+					+ "          SELECT admin_id, admin_pwd, login_session, delete_status FROM movie_admin_tb) a"
+					+ " WHERE user_id=? AND user_pwd=? AND delete_status='N'";
 
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, strId);
@@ -181,20 +181,140 @@ public class CustomerDAOImpl implements CustomerDAO{
 	}
 
 	@Override
-	// 회원정보 인증처리 && 상세 페이지 (return DTO)
-	public CustomerDTO getCustomerDetail(String strId) {
-		return null;
+	// ======================= [회원정보 불러오기] =======================
+	public CustomerDTO memberSelect(String strId) {
+		System.out.println("CustomerDAOImpl - memberSelect()");
+		CustomerDTO dto =  new CustomerDTO();
+	
+		try {
+			// 1. DB 연결 => 데이터베이스 커넥션 생성
+			conn = dataSource.getConnection();
+	
+			// 2. SQL 작성 => prepareStatement 작성
+			String query = "SELECT * FROM movie_customer_tb WHERE user_id=? AND delete_status='N' ";
+	
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, strId);
+	
+			rs = pstmt.executeQuery();
+	
+			// 3. 실행
+			// rs가 존재할 때
+			if (rs.next()) {
+				dto.setUser_id(rs.getString("user_id"));
+				dto.setUser_pwd(rs.getString("user_pwd"));
+				dto.setUser_name(rs.getString("user_name"));
+				dto.setUser_birth(rs.getDate("user_birth"));
+				dto.setUser_phone(rs.getString("user_phone"));
+				dto.setUser_address(rs.getString("user_address"));
+				dto.setUser_email(rs.getString("user_email"));
+				dto.setUser_tel(rs.getString("user_tel"));
+				dto.setUser_regDate(rs.getTimestamp("user_regDate"));
+				dto.setUser_grade(rs.getString("user_grade"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return dto;
 	}
 
 	@Override
-	// 회원정보 수정처리
+	// ======================= [회원정보 수정처리] =======================
 	public int updateCustomer(CustomerDTO dto) {
-		return 0;
+		System.out.println("CustomerDAOImpl - updateCustomer()");
+		int updateCnt = 0;
+		
+		try {
+			// 1. DB 연결 => 데이터베이스 커넥션 생성
+			conn = dataSource.getConnection();
+	
+			// 2. SQL 작성 => prepareStatement 작성
+			String query = "UPDATE movie_customer_tb "
+					+ " SET user_pwd=?, user_name=?, user_birth=?, user_address=?, user_phone=?, user_email=?, user_tel=? "
+					+ " WHERE user_id=? ";
+	
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, dto.getUser_pwd());
+			pstmt.setString(2, dto.getUser_name());
+			pstmt.setDate(3, dto.getUser_birth());
+			pstmt.setString(4, dto.getUser_address());
+			pstmt.setString(5, dto.getUser_phone());
+			pstmt.setString(6, dto.getUser_email());
+			pstmt.setString(7, dto.getUser_tel());
+			
+			pstmt.setString(8,dto.getUser_id());
+	
+			// 3. 실행
+			updateCnt = pstmt.executeUpdate();
+			System.out.println("updateCnt : " + updateCnt);
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+				
+		return updateCnt;
 	}
 
 	@Override
-	// 회원정보 인증처리 && 탈퇴처리
+	// ======================= [회원정보 탈퇴처리] =======================
 	public int deleteCustomer(String strId) {
-		return 0;
+		System.out.println("CustomerDAOImpl - deleteCustomer()");
+		int deleteCnt = 0;
+		
+		try {
+			// 1. DB 연결 => 데이터베이스 커넥션 생성
+			conn = dataSource.getConnection();
+	
+			// 2. SQL 작성 => prepareStatement 작성
+			String query = "UPDATE movie_customer_tb "
+					+ " SET delete_status='Y' "
+					+ " WHERE user_id=? ";
+	
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, strId);
+			
+			// 3. 실행
+			deleteCnt = pstmt.executeUpdate();
+			System.out.println("deleteCnt : " + deleteCnt);
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+				
+		return deleteCnt;
 	}
 }
