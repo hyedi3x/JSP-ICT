@@ -1,0 +1,15 @@
+
+/* =======================[myInfoTicketWrap 전체 컨테이너]======================= */
+#myInfoTicketWrap {
+	display: flex;
+	flex-direction: column;
+}
+
+/* =======================[관람권 정보 오른쪽 콘텐츠 전체 설정]======================= */ 
+
+#myInfo_right {
+	display: flex;
+	flex-direction: column;
+	width: 70%;   /* 요소 전체 너비 980px의 22% */
+	padding: 20px 10px;
+}

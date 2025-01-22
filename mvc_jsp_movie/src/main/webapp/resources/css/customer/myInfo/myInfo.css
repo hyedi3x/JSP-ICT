@@ -1,0 +1,83 @@
+
+/* =======================[myInfo.jsp의 css설정]======================= */
+.myInfo_container {
+	display: flex;
+    flex-direction: column;
+    margin: 0 auto;  /* 페이지 가운데로 요소 정렬 */
+    width: 980px;    /* 요소 전체 너비 980px */
+}
+
+/* [myInfoTitle 요소] */
+#myInfoTitle {
+	margin-top: 20px;
+	padding: 0px 15px;   /* 상하 좌우 */
+}
+
+#myInfoTitle h2 {
+	margin: 0;
+	padding: 20px 0px;
+	border-bottom: 1px solid #ebebeb;  /* 테두리 아래쪽 연한 그레이*/
+} 
+
+/* =======================[나의정보 요소들에 대한 설정]======================= */
+
+#myInfoSection {
+	display: flex;
+	flex-direction: column;
+	align-items: center;  /* align-items : 수직정렬 요소 / 현재 디스플레이 방향이 세로이므로, 수평 가운데 정렬*/
+	padding: 10px 15px;
+}
+
+#myInfo {
+	display: flex;
+	width: 100%;     /* 요소 전체 너비 980px */
+	background-color: #f8f9fa;   /* 초초 연한 회색 */
+}
+
+#myInfo_Box {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;     /* 요소 전체 너비 980px */
+	margin: 60px;
+}
+
+#myInfoIcon i {
+	font-size: 130px;
+	color: #b3bcc7;    /* 연한 회청색 */
+}
+
+#personInfoAll {
+	width: 78%;  /* 요소 전체 너비 980px의 78% */
+}
+
+#personInfo {
+	margin-bottom: 15px;
+    padding-bottom: 20px;
+	border-bottom: 1px solid #ebebeb;  /* 테두리 아래쪽 연한 그레이*/
+}
+
+/* 이름, 아이디*/
+#personInfo strong {
+	font-size: 29px;
+	margin-right: 8px;
+	color: #342929;  /* 블랙에 가까운 */
+}
+
+#personInfo span {
+	font-size: 18px;
+	font-weight: 500;
+	margin-right: 8px;
+	color: #829cbc;   /* 연한 회청색 */
+	border-bottom: 1px solid #829cbc;
+}
+
+/* 등급 */
+#personGrade strong {
+	font-size: 20px;
+	color: #342929;  /* 블랙에 가까운 */
+}
+
+#personGrade span {
+	font-size: 20px;
+	color: #fb4357;  /* 쨍한 핑크 */
+}
