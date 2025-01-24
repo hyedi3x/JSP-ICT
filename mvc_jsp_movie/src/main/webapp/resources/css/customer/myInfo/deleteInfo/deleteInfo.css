@@ -8,7 +8,6 @@ p {
 	margin: 0;
 }
 
-
 /* =======================[deleteContainer의 요소]======================= */
 #deleteContainer {
 	display: flex;
@@ -33,18 +32,18 @@ p {
 	display: flex;
 	flex-direction: column;
 	align-items: center;  /* align-items : 수직정렬 요소 / 현재 디스플레이 방향이 세로이므로, 수평 가운데 정렬*/
-	width: 100%;
+	width: 100%;   /* deleteContainer(964px)를 100% 상속 */
 }
 
 form {
-	width: 100%;
+	width: 100%; /* deleteContainer(964px)를 100% 상속 */
 }
 
 /* =======================[철회 안내]======================= */
 #deleteGuide {
 	display: flex;
 	flex-direction: column;
-	width: 100%;
+	width: 100%; /* deleteContainer(964px)를 100% 상속 */
 	background-color: #f8f9fa;   /* 초초 연한 회색 */	
 }
 
@@ -78,7 +77,7 @@ form {
 #delPlusGuide {
 	display: flex;
 	flex-direction: column;
-	width: 100%;	
+	width: 100%;	/* deleteContainer(964px)를 100% 상속 */ 
 }
 
 #delPlusGuide .font24 p {

@@ -5,10 +5,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-
-<!-- 반응형 웹 선언 (viewport: 기기, content: 기기의 너비를 부여 받음 -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>회원가입 페이지</title>
 
@@ -16,7 +12,6 @@
 <link rel="stylesheet" href="${path}/resources/css/customer/join/join.css">
 
 <!-- [js] -->
-
 <!-- 다음 API 우편주소 찾기 -->
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="${path}/resources/js/customer/join/daumAdressAPI.js" defer></script> 

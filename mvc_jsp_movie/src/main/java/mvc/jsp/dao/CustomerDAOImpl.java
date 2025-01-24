@@ -99,7 +99,7 @@ public class CustomerDAOImpl implements CustomerDAO{
 			
 			// 2. SQL 작성 => prepareStatement 작성 
 			String sql = "INSERT INTO movie_customer_tb"
-					+ "    VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'userNo_'||(SELECT NVL(MAX(TO_NUMBER(substr(user_no, 8)))+1, 1) FROM movie_customer_tb), SYSDATE, DEFAULT, 'N', 'Customer')";
+					+ "    VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'userNo_'||(SELECT NVL(MAX(TO_NUMBER(substr(user_no, 8)))+1, 1) FROM movie_customer_tb), SYSDATE, DEFAULT, DEFAULT, 'Customer')";
 			
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, dto.getUser_id());

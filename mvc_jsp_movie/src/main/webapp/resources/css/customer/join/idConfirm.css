@@ -15,7 +15,7 @@
 
 #idConfirmTitle h3 {
 	margin: 0;
-	padding: 20px 0px;
+	padding: 20px 0px;  /* 상하 좌우 */
 } 
 
 /* [section 요소 - form 요소들] */
@@ -36,13 +36,13 @@
 .infoInput {
 	display: flex;
 	margin: 7px 0px;  /* 상하 좌우 */
-	width: 98%;
-    justify-content: center;
+	width: 98%;       /* confirmForm(370px)의 98%*/
+    justify-content: center;  /* 수평 가운데 정렬*/
 }
 
 /* ----------------------[아이디 사용가능 여부]---------------------- */
 #comfirmId {
-	width: 100%;
+	width: 100%;        /* infoInput(370px의 98%) 너비 100%로 받음 */
 	margin-top: 5px;
 	padding: 10px 0px;
 	text-align: center;
@@ -52,7 +52,7 @@
 }
 
 /* ----------------------[아이디 중복 체크 영역]---------------------- */
-.inputText {  /* 아이디 부분 */
+.inputText {     /* 아이디 부분 */
     display: flex;
     width: 80px;
     padding-right: 10px;
@@ -87,20 +87,19 @@ input[type=text]:focus {
     height: 30px;
     background-color: #FA2055;  /* 쨍한 핑크 */
     color: #ffffff; /* white */
-    border: 1px solid #FA2055; 
+    border: 1px solid #FA2055;  /* 쨍한 핑크 */
     border-radius: 3px ;
     margin-left: 5px;
 }
 
 .inputType input[type="button"] {
 	display: flex;
-	align-items: flex-end;
+	align-items: flex-end;   /* 오른쪽 정렬 */
 }
-
 
 .inputType2 {
     display: flex;
-    width: 100%;
-    justify-content: flex-end;
+    width: 100%;     /* confirmForm(370px) 요소 100% */
+    justify-content: flex-end; /* 오른쪽 정렬 */
 }
 

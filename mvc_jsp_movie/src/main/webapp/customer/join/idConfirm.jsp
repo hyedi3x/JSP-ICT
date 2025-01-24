@@ -5,7 +5,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
 <title>아이디 중복 체크</title>
 
 <!-- [css] -->
@@ -16,7 +15,7 @@
 
 </head>
 <body>
-	<!-- join page -->
+	<!-- idConfirm page -->
 	<div id="idConfirmContainer">
 		<div id="idConfirmTitle">
 			<h3>아이디 중복 체크</h3>

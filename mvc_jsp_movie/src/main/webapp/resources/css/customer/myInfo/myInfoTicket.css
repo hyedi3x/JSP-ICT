@@ -10,6 +10,6 @@
 #myInfo_right {
 	display: flex;
 	flex-direction: column;
-	width: 70%;   /* 요소 전체 너비 980px의 22% */
+	width: 70%;   /* 요소 전체 너비 980px의 70% */
 	padding: 20px 10px;
 }

@@ -103,5 +103,5 @@
 
 #login_ad img {
 	display: flex;
-	width: 90%; /*.login_ad 클래스의 너비 80% 상속 */
+	width: 90%; /*.login_ad(280px) 90% 상속 */
 }
