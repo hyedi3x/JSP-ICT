@@ -32,7 +32,8 @@
 						<div id="personInfoAll">
 							<div id="personInfo">
 								<strong>${info.user_name}님</strong>
-								<span>${info.user_id}</span>
+								<span id="userId">${info.user_id}</span>
+								<div id="userRegDate">가입일 : ${info.user_regDate} </div>
 							</div>
 							<div id="personGrade">
 							<strong>고객님의 현재 등급은 <span> ${info.user_grade} </span> 입니다.</strong>
