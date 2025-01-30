@@ -141,7 +141,7 @@ public class CustomerController extends HttpServlet {
 		else if(url.equals("/modifyInfoChkAction.do")) {
 			System.out.println("<<<url => /modifyInfoChkAction.do >>>");
 						
-			service.modifyInfoChk(request, response);   // 비밀번호 일치 확인 
+			service.userPwdChk(request, response);   // 비밀번호 일치 확인 
 			
 			viewPage = "customer/myInfo/modifyInfo/modifyInfoChkAction.jsp";			
 		}
@@ -178,7 +178,7 @@ public class CustomerController extends HttpServlet {
 		else if(url.equals("/deleteInfoChkAction.do")) {
 			System.out.println("<<<url => /deleteInfoChkAction.do >>>");
 						
-			service.modifyInfoChk(request, response);   // 비밀번호 일치 확인 
+			service.userPwdChk(request, response);   // 비밀번호 일치 확인 
 			
 			viewPage = "customer/myInfo/deleteInfo/deleteInfoChkAction.jsp";			
 		}
