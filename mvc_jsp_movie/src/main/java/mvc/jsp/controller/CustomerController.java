@@ -117,6 +117,101 @@ public class CustomerController extends HttpServlet {
 			request.getSession().invalidate();
 			viewPage = "common/main.jsp";		
 		}
+		
+		// ======================= [마이페이지 - 초기 페이지(관람권 티켓 정보) 진입] =======================
+		else if(url.equals("/myInfoTicket.do")) {
+			System.out.println("<<<url => /myInfoTicket.do >>>");
+			
+			service.myInfo(request, response);  // service.myInfo() : 회원 정보 
+						
+			viewPage = "customer/myInfo/myInfoTicket.jsp";			
+		}
+		
+
+		// ======================= [마이페이지 - 정보 수정 페이지 진입 전 비밀번호 확인(인증) 페이지] =======================
+		else if(url.equals("/modifyInfoChk.do")) {
+			System.out.println("<<<url => /modifyInfoChk.do >>>");
+
+			service.myInfo(request, response);  // service.myInfo() : 회원 정보 
+
+			viewPage = "customer/myInfo/modifyInfo/modifyInfoChk.jsp";			
+		}
+
+		// ======================= [마이페이지 - 정보 수정 페이지 진입 전 비밀번호 확인(인증) 처리 페이지] =======================
+		else if(url.equals("/modifyInfoChkAction.do")) {
+			System.out.println("<<<url => /modifyInfoChkAction.do >>>");
+						
+			service.userPwdChk(request, response);   // 비밀번호 일치 확인 
+			
+			viewPage = "customer/myInfo/modifyInfo/modifyInfoChkAction.jsp";			
+		}
+		
+		// ======================= [마이페이지 - 정보 수정 페이지] =======================
+		// 기존 회원가입 데이터 가져오기
+		else if(url.equals("/modifyInfo.do")) {
+			System.out.println("<<<url => /modifyInfo.do >>>");
+			
+			service.modifyInfo(request, response); 
+			
+			viewPage = "customer/myInfo/modifyInfo/modifyInfo.jsp";			
+		}
+
+		// ======================= [마이페이지 - 정보 수정 처리 페이지] =======================
+		else if(url.equals("/modifyInfoAction.do")) {
+			System.out.println("<<<url => /modifyInfoAction.do >>>");
+			
+			service.modifyInfoAction(request, response);
+			
+			viewPage = "customer/myInfo/modifyInfo/modifyInfoAction.jsp";			
+		}
+		
+		// ======================= [마이페이지 - 회원 탈퇴 페이지 진입 전 비밀번호 확인(인증) 페이지] =======================
+		else if(url.equals("/deleteInfoChk.do")) {
+			System.out.println("<<<url => /deleteInfoChk.do >>>");
+
+			service.myInfo(request, response);  // service.myInfo() : 회원 정보 
+
+			viewPage = "customer/myInfo/deleteInfo/deleteInfoChk.jsp";			
+		}
+
+		// ======================= [마이페이지 - 회원 탈퇴 페이지 진입 전 비밀번호 확인(인증) 처리 페이지] =======================
+		else if(url.equals("/deleteInfoChkAction.do")) {
+			System.out.println("<<<url => /deleteInfoChkAction.do >>>");
+						
+			service.userPwdChk(request, response);   // 비밀번호 일치 확인 
+			
+			viewPage = "customer/myInfo/deleteInfo/deleteInfoChkAction.jsp";			
+		}
+				
+		// ======================= [마이페이지 - 회원탈퇴 페이지(이용약관 동의 철회)] =======================
+		// 기존 데이터 가져오기
+		else if(url.equals("/deleteInfo.do")) {
+			System.out.println("<<<url => /deleteInfo.do >>>");
+			
+			service.myInfo(request, response);  // service.myInfo() : 회원 정보 
+			
+			viewPage = "customer/myInfo/deleteInfo/deleteInfo.jsp";			
+		}
+		
+		// ======================= [마이페이지 - 회원탈퇴 이용약관 확인 페이지] =======================
+		else if(url.equals("/deleteGuide.do")) {
+			System.out.println("<<<url => /deleteGuide.do >>>");
+						
+			viewPage = "customer/myInfo/deleteInfo/deleteGuide.jsp";			
+		}
+		
+		// ======================= [마이페이지 - 회원 탈퇴 페이지(탈퇴)] =======================
+		else if(url.equals("/deleteInfoAction.do")) {
+			System.out.println("<<<url => /deleteInfoAction.do >>>");
+						
+			service.deleteInfoAction(request, response);   // 비밀번호 일치 확인 
+			
+			// 세션 삭제
+			request.getSession().invalidate();
+			
+			viewPage = "customer/myInfo/deleteInfo/deleteInfoAction.jsp";			
+		}
+		
 
 		// ********************** [RequestDispatcher] **********************
 		// : 서블릿 또는 JSP 요청을 받은 후, 다른 컴포넌트로 요청을 위임하는 클래스이다.

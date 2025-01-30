@@ -9,6 +9,6 @@
 
 </head>
 <body>
-	<div id="cgv-ad-wrap" ><a href="#"><img src="/mvc_jsp_movie/resources/imgs/common/ad/cgv-ad1.png" alt="ad-banner" ></a></div>
+	<div id="cgv-ad-wrap" ><a href="#"><img src="${path}/resources/imgs/common/ad/cgv-ad1.png" alt="ad-banner" ></a></div>
 </body>
 </html>

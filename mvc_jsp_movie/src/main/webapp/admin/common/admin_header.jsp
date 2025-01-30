@@ -13,7 +13,7 @@
 			<a href="${path}/main.do"><img src="https://img.cgv.co.kr/R2014/images/common/logo/logoRed.png" alt="CGV"></a>
 			<ul>
 				<li><a href="${path}/logout.do"><i class="fa-solid fa-arrow-right-to-bracket"></i>로그아웃</a></li>
-				<li><a href="${path}/myPage.do"><i class="fa-regular fa-user"></i>관리자페이지</a></li>
+				<li><a href="${path}/myInfoTicket.do"><i class="fa-regular fa-user"></i>관리자페이지</a></li>
 				<li><a href="${path}/board_list.bc"><i class="fa-solid fa-phone-volume"></i>고객센터</a></li>
 			</ul>			
 		</div>

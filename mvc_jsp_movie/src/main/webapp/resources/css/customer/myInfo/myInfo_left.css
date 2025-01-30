@@ -1,0 +1,56 @@
+
+/* =======================[나의 정보 왼쪽 메뉴 전체 설정]======================= */ 
+#myInfoDetail {
+	display: flex;
+	width: 980px;       /* 요소 전체 너비 980px */
+	margin: 0 auto;
+}
+
+#myInfo_left {
+	display: flex;
+	width: 22%;   /* 요소 전체 너비 980px의 22% */
+	padding: 20px 15px;
+}
+
+/* ------------------------[myInfo_left.jsp의 css설정]------------------------*/
+#leftWrap {
+	width: 100%;     /* 요소 전체 너비 980px의 22% */
+}
+
+#left_menubar {
+	display: flex;
+	flex-direction: column;
+	width: 100%;     /* 요소 전체 너비 980px의 22% */
+	margin: 0;
+	padding: 0;
+}
+
+#left_menubar li {
+	list-style: none;   /* 글머리표 숨기기 */
+	margin-bottom: 12px;
+}
+
+#left_menubar h4 {
+	margin: 0px 0px 10px 0px;
+	padding: 9px 0px 9px 10px;
+	background-color: #fb4357;  /* 쨍한 핑크 */
+	color: #ffffff;   /* 흰색 */
+	border-radius: 3px;
+}
+
+.on a {
+	color: #1b1b1c;  /* 블랙에 가까운 */
+	text-decoration: none;   /* 밑줄 삭제 */
+	font-size: 14px;
+    font-weight: 500;
+    padding-left: 5px;
+}
+
+.on a:hover {
+	color: #fb4357;  /* 쨍한 핑크 */
+}
+
+.info_menu {
+	padding: 0;
+	margin: 0;
+}

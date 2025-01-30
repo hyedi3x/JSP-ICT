@@ -1,0 +1,35 @@
+
+/* =======================[deleteGuide.jsp]======================= */
+#delGuideWrap{
+	display: flex;
+	flex-direction: column;
+	width: 430px;
+	margin: 0 auto;
+}
+
+#windowClose { /* X 버튼에 대한 css 설정*/
+	display: flex;
+	justify-content: space-between;
+}
+
+#windowClose input[type="button"] {
+	margin: 7px 0px;
+	padding: 2px 5px;
+	font-size: 13px;
+	border: 2px solid #333533; /* 채도가 낮은 진한 그레이 */
+	border-radius: 3px;
+	background-color: #333533;  /* 채도가 낮은 진한 그레이 */
+	color: #ffffff;
+}
+
+.bold16 {
+	font-size: 16px;
+	font-weight: bold;
+	padding: 8px 3px;
+}
+
+.normal16 {
+	font-size: 16px;
+	padding: 8px 3px;
+	text-align: justify;   /* 텍스트 양쪽 정렬 */
+}

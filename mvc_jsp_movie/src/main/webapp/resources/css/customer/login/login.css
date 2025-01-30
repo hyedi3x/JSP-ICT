@@ -1,5 +1,5 @@
 
-/* [join 전체 컨테이너] */
+/* [login 전체 컨테이너] */
 #loginWrap {
 	display: flex;
 	flex-direction: column;
@@ -13,7 +13,7 @@
     width: 768px;    /* 요소 전체 너비 768px */
 }
 
-/* [joinTitle 요소] */
+/* [loginTitle 요소] */
 #loginTitle {
 	margin-top: 20px;
 	padding: 0px 30px;   /* 상하 좌우 */
@@ -65,6 +65,12 @@
 	border: 2px solid #e5e5e5; /* 테두리 색상: 연한 그레이 */
 }
 
+/* focus */
+#loginInput input[type="text"]:focus, #loginInput input[type="password"]:focus {
+	border: 1px solid #ffb3c1;  /* 연핑크 */
+	outline: none;
+}
+
 #loginInput input[type="submit"] {
 	width: 389px;
 	margin: 5px 20px;
@@ -97,5 +103,5 @@
 
 #login_ad img {
 	display: flex;
-	width: 90%; /*.login_ad 클래스의 너비 80% 상속 */
+	width: 90%; /*.login_ad(280px) 90% 상속 */
 }

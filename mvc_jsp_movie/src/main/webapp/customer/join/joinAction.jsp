@@ -5,7 +5,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
 <title>회원가입 처리 페이지</title>
 </head>
 <body>
