@@ -25,8 +25,8 @@ public interface CustomerService {
 	public void myInfo(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException;
 	
-	// ======================= [마이페이지 - 수정 페이지 진입 전 비밀번호 확인(인증) 처리 페이지] =======================
-	public void modifyInfoChk(HttpServletRequest request, HttpServletResponse response)
+	// ======================= [마이페이지 - 수정/삭제 페이지 진입 전 비밀번호 확인(인증) 처리 페이지] =======================
+	public void userPwdChk(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException;
 	
 	// ======================= [마이페이지 - 수정 페이지] =======================

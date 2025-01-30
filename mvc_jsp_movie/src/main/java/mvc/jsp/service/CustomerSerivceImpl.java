@@ -157,7 +157,7 @@ public class CustomerSerivceImpl implements CustomerService{
 
 	@Override
 	// ======================= [마이페이지 - 수정 페이지 진입 전 비밀번호 확인(인증) 처리 페이지] =======================
-	public void modifyInfoChk(HttpServletRequest request, HttpServletResponse response)
+	public void userPwdChk(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		System.out.println("CustomerSerivceImpl - modifyInfoChk()");
 
