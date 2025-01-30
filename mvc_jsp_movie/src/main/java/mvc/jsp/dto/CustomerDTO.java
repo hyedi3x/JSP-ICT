@@ -27,7 +27,7 @@ public class CustomerDTO {
 
 	// 매개변수 생성자
 	public CustomerDTO(String user_id, String user_pwd, String user_name, Date user_birth, String user_phone,
-			String user_address, String user_email, String user_tel, String user_grade) {
+			String user_address, String user_email, String user_tel,Timestamp user_regDate, String user_grade) {
 		super();
 		this.user_id = user_id;
 		this.user_pwd = user_pwd;
@@ -134,12 +134,24 @@ public class CustomerDTO {
 	
 }
 
-/*
- * CREATE TABLE movie_customer_tb( user_id VARCHAR2(20) PRIMARY KEY, -- ID
- * user_pwd VARCHAR2(20) NOT NULL, -- 비밀번호 user_name VARCHAR2(30) NOT NULL, --이름
- * user_birth DATE NOT NULL, -- 생년월일 user_phone VARCHAR2(13) NOT NULL, -- 핸드폰
- * user_address VARCHAR2(70) NOT NULL, -- 주소 user_email VARCHAR2(30), -- 이메일
- * user_tel VARCHAR2(13), -- 지역 전화번호 user_no VARCHAR2(20), -- 유저 고유 번호
- * user_regDate TIMESTAMP DEFAULT sysdate, -- 가입일 login_session VARCHAR2(1)
- * DEFAULT 'C' -- 로그인 권한 (어드민과 구분) );
- */
+/*-- /////////////////////////////////////////////////////////////////////////////
+-- ==================================== 회원정보 테이블 ====================================
+DROP TABLE movie_customer_tb  CASCADE CONSTRAINTS;
+CREATE TABLE movie_customer_tb(
+    user_id         VARCHAR2(20)    PRIMARY KEY,       -- ID
+	user_pwd   		VARCHAR2(20)    NOT NULL,          -- 비밀번호
+	user_name   	VARCHAR2(30)    NOT NULL,          -- 이름
+	user_birth   	DATE            NOT NULL,          -- 생년월일   
+    user_phone      VARCHAR2(13)    NOT NULL,          -- 핸드폰  
+	user_address    VARCHAR2(100)   NOT NULL,           -- 주소
+	user_email      VARCHAR2(30),                      -- 이메일
+    user_tel        VARCHAR2(13),                      -- 지역 전화번호
+    user_no         VARCHAR2(20),                      -- 유저 고유 번호 
+	user_regDate    TIMESTAMP       DEFAULT sysdate,   -- 가입일
+    user_grade      VARCHAR2(20)    DEFAULT '일반',    -- 등급
+    delete_status   VARCHAR2(10)    DEFAULT 'N',       -- 탈퇴자 여부 (기본 N)
+    login_session   VARCHAR2(10),                      -- 권한
+    CONSTRAINT movie_customer_tb_login_fk 
+        FOREIGN KEY(login_session) 
+        REFERENCES login_tb(login_session) ON DELETE CASCADE      
+);*/
